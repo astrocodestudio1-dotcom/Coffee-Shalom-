@@ -24,7 +24,7 @@
 </head>
 <body>
 
-    <!-- LOADER ELEGANTE -->
+    <!-- LOADER ELEGANTE CON ANIMACIÓN DE TAZA -->
     <div id="loader" class="loader-overlay">
         <div class="loader-content">
             <div class="loader-cup">☕</div>
@@ -180,7 +180,6 @@
             </div>
 
             <div class="catalog-grid" id="productCatalog">
-                <!-- Los productos se cargan dinámicamente o por HTML estricto optimizado -->
                 <div class="product-card" data-category="cafe" data-id="1" data-name="Café Coffee Shalom Clásico 500g" data-price="280">
                     <div class="product-img">
                         <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=500&q=80" alt="Café Coffee Shalom Clásico" loading="lazy">
@@ -426,7 +425,6 @@
                 <button id="closeCart" class="close-cart"><i class="fas fa-times"></i></button>
             </div>
             <div class="cart-body" id="cartItemsContainer">
-                <!-- Productos agregados aparecerán aquí -->
                 <p class="empty-cart-msg">Tu carrito está vacío.</p>
             </div>
             <div class="cart-footer" id="cartFooter" style="display: none;">
@@ -440,12 +438,9 @@
                 </div>
                 <div class="cart-actions-buttons">
                     <button id="clearCartBtn" class="btn btn-secondary btn-sm">Vaciar Carrito</button>
-                    
-                    <!-- CONFIGURACIÓN DE STRIPE -->
                     <!-- 
-                      IMPORTANTE: 
-                      1. Reemplaza 'pk_test_TU_CLAVE_PUBLICA_AQUI' con tu Clave Pública de Stripe cuando la tengas configurada.
-                      2. Las credenciales secretas se procesan en tu servidor backend. Aquí inicializamos la pasarela en modo prueba.
+                      CONFIGURACIÓN DE STRIPE:
+                      Reemplaza 'pk_test_TU_CLAVE_PUBLICA_AQUI' con tu llave pública de Stripe en el archivo script.js
                     -->
                     <button id="stripeCheckoutBtn" class="btn btn-primary btn-full">Pagar con Stripe</button>
                 </div>
