@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -165,77 +166,77 @@
             </div>
 
             <!-- Contenedor Principal del Carrusel -->
-            <div class="coffee-carousel-wrapper">
+            <div class="coffee-carousel-wrapper" style="position: relative; max-width: 1200px; margin: 0 auto; overflow: hidden; padding: 20px 0;">
                 
                 <!-- Botón Izquierda -->
-                <button class="carousel-btn prev-btn" id="coffee-prev" aria-label="Anterior">
+                <button class="carousel-btn prev-btn" id="coffee-prev" aria-label="Anterior" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); z-index: 10; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold); color: var(--gold); width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
                 <!-- Pista del Carrusel -->
-                <div class="coffee-track-container">
-                    <div class="coffee-track" id="coffee-track">
+                <div class="coffee-track-container" style="overflow: hidden; margin: 0 50px;">
+                    <div class="coffee-track" id="coffee-track" style="display: flex; gap: 30px; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);">
                         
                         <!-- Item 1: Café Coffee Shalom -->
-                        <div class="coffee-slide-card glass-card hover-3d">
-                            <div class="card-img">
-                                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop" alt="Café Coffee Shalom Especial">
-                                <span class="card-badge">$70</span>
+                        <div class="coffee-slide-card glass-card hover-3d" style="min-width: calc(33.333% - 20px); flex: 0 0 calc(33.333% - 20px); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                            <div class="card-img" style="height: 240px; overflow: hidden; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop" alt="Café Coffee Shalom Especial" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                                <span class="card-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: #000; padding: 5px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">$70</span>
                             </div>
-                            <div class="card-body">
-                                <h3>Café Coffee Shalom</h3>
-                                <p>Nuestra mezcla exclusiva de la casa, tostado medio con notas aromáticas únicas y cuerpo equilibrado.</p>
-                                <div class="card-footer">
-                                    <span class="intensity"><i class="fa-solid fa-mug-hot"></i> Especialidad</span>
-                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Café%20Coffee%20Shalom" target="_blank" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+                            <div class="card-body" style="padding: 25px; display: flex; flex-direction: column; flex-grow: 1;">
+                                <h3 style="font-family:'Playfair Display',serif; font-size: 1.3rem; margin-bottom: 10px;">Café Coffee Shalom</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1;">Nuestra mezcla exclusiva de la casa, tostado medio con notas aromáticas únicas y cuerpo equilibrado.</p>
+                                <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                    <span class="intensity" style="font-size: 0.85rem; color: var(--gold);"><i class="fa-solid fa-mug-hot"></i> Especialidad</span>
+                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Café%20Coffee%20Shalom" target="_blank" class="btn-link" style="color: var(--gold); font-weight: 600;">Pedir <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Item 2: Granos de café -->
-                        <div class="coffee-slide-card glass-card hover-3d">
-                            <div class="card-img">
-                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=800&auto=format&fit=crop" alt="Granos de café">
-                                <span class="card-badge">$180</span>
+                        <div class="coffee-slide-card glass-card hover-3d" style="min-width: calc(33.333% - 20px); flex: 0 0 calc(33.333% - 20px); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                            <div class="card-img" style="height: 240px; overflow: hidden; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=800&auto=format&fit=crop" alt="Granos de café" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                                <span class="card-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: #000; padding: 5px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">$180</span>
                             </div>
-                            <div class="card-body">
-                                <h3>Granos de café</h3>
-                                <p>Granos de altura seleccionados cuidadosamente para conservar frescura y molienda perfecta en casa.</p>
-                                <div class="card-footer">
-                                    <span class="intensity"><i class="fa-solid fa-seedling"></i> 100% Arábica</span>
-                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Granos%20de%20café" target="_blank" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+                            <div class="card-body" style="padding: 25px; display: flex; flex-direction: column; flex-grow: 1;">
+                                <h3 style="font-family:'Playfair Display',serif; font-size: 1.3rem; margin-bottom: 10px;">Granos de café</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1;">Granos de altura seleccionados cuidadosamente para conservar frescura y molienda perfecta en casa.</p>
+                                <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                    <span class="intensity" style="font-size: 0.85rem; color: var(--gold);"><i class="fa-solid fa-seedling"></i> 100% Arábica</span>
+                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Granos%20de%20café" target="_blank" class="btn-link" style="color: var(--gold); font-weight: 600;">Pedir <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Item 3: Café molido -->
-                        <div class="coffee-slide-card glass-card hover-3d">
-                            <div class="card-img">
-                                <img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?q=80&w=800&auto=format&fit=crop" alt="Café molido">
-                                <span class="card-badge">$165</span>
+                        <div class="coffee-slide-card glass-card hover-3d" style="min-width: calc(33.333% - 20px); flex: 0 0 calc(33.333% - 20px); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                            <div class="card-img" style="height: 240px; overflow: hidden; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?q=80&w=800&auto=format&fit=crop" alt="Café molido" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                                <span class="card-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: #000; padding: 5px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">$165</span>
                             </div>
-                            <div class="card-body">
-                                <h3>Café molido</h3>
-                                <p>Molienda óptima lista para cafetera de goteo o prensa francesa, con un aroma envolvente.</p>
-                                <div class="card-footer">
-                                    <span class="intensity"><i class="fa-solid fa-filter"></i> Listo para preparar</span>
-                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Café%20molido" target="_blank" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+                            <div class="card-body" style="padding: 25px; display: flex; flex-direction: column; flex-grow: 1;">
+                                <h3 style="font-family:'Playfair Display',serif; font-size: 1.3rem; margin-bottom: 10px;">Café molido</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1;">Molienda ideal y equilibrada para cafetera de filtro, prensa francesa o métodos de goteo.</p>
+                                <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                    <span class="intensity" style="font-size: 0.85rem; color: var(--gold);"><i class="fa-solid fa-fire"></i> Molido Fino/Medio</span>
+                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Café%20molido" target="_blank" class="btn-link" style="color: var(--gold); font-weight: 600;">Pedir <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Item 4: Bebidas de Autor -->
-                        <div class="coffee-slide-card glass-card hover-3d">
-                            <div class="card-img">
-                                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=800&auto=format&fit=crop" alt="Bebidas Preparadas">
-                                <span class="card-badge">$75</span>
+                        <!-- Item 4: Empaques del Café -->
+                        <div class="coffee-slide-card glass-card hover-3d" style="min-width: calc(33.333% - 20px); flex: 0 0 calc(33.333% - 20px); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                            <div class="card-img" style="height: 240px; overflow: hidden; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1610884693305-6f7d71b26912?q=80&w=800&auto=format&fit=crop" alt="Empaques del Café" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                                <span class="card-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: #000; padding: 5px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">$210</span>
                             </div>
-                            <div class="card-body">
-                                <h3>Bebidas de Autor</h3>
-                                <p>Lattes, capuchinos y especialidades de temporada elaboradas al momento por nuestros baristas.</p>
-                                <div class="card-footer">
-                                    <span class="intensity"><i class="fa-solid fa-mug-saucer"></i> Artesanal</span>
-                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Bebidas%20de%20Autor" target="_blank" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+                            <div class="card-body" style="padding: 25px; display: flex; flex-direction: column; flex-grow: 1;">
+                                <h3 style="font-family:'Playfair Display',serif; font-size: 1.3rem; margin-bottom: 10px;">Empaques del Café</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1;">Bolsa sellada hermética con válvula desgasificadora y diseño exclusivo, perfecto para obsequiar.</p>
+                                <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                    <span class="intensity" style="font-size: 0.85rem; color: var(--gold);"><i class="fa-solid fa-gift"></i> Edición Regalo</span>
+                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Empaques%20del%20Café" target="_blank" class="btn-link" style="color: var(--gold); font-weight: 600;">Pedir <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +245,7 @@
                 </div>
 
                 <!-- Botón Derecha -->
-                <button class="carousel-btn next-btn" id="coffee-next" aria-label="Siguiente">
+                <button class="carousel-btn next-btn" id="coffee-next" aria-label="Siguiente" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); z-index: 10; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold); color: var(--gold); width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
 
@@ -252,5 +253,445 @@
         </div>
     </section>
 
+    <!-- Script de control para el carrusel de café -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const track = document.getElementById('coffee-track');
+            const slides = Array.from(track.children);
+            const nextButton = document.getElementById('coffee-next');
+            const prevButton = document.getElementById('coffee-prev');
+
+            let currentIndex = 0;
+
+            function getSlidesPerView() {
+                if (window.innerWidth <= 768) return 1;
+                if (window.innerWidth <= 1024) return 2;
+                return 3;
+            }
+
+            function updateCarousel() {
+                const slidesPerView = getSlidesPerView();
+                const maxIndex = slides.length - slidesPerView;
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                if (currentIndex < 0) currentIndex = 0;
+
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                const gap = 30; 
+                const moveAmount = currentIndex * (slideWidth + gap);
+                track.style.transform = `translateX(-${moveAmount}px)`;
+            }
+
+            nextButton.addEventListener('click', () => {
+                const slidesPerView = getSlidesPerView();
+                const maxIndex = slides.length - slidesPerView;
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateCarousel();
+                } else {
+                    currentIndex = 0; 
+                    updateCarousel();
+                }
+            });
+
+            prevButton.addEventListener('click', () => {
+                const slidesPerView = getSlidesPerView();
+                const maxIndex = slides.length - slidesPerView;
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                } else {
+                    currentIndex = maxIndex; 
+                    updateCarousel();
+                }
+            });
+
+            window.addEventListener('resize', updateCarousel);
+        });
+    </script>
+
+    <!-- 5. Repostería Gourmet -->
+    <section id="pastry" class="section-padding pastry-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">DELICIAS RECIÉN HORNEADAS</span>
+                <h2 class="section-title">Repostería de Autor</h2>
+                <p class="section-desc">El maridaje perfecto para elevar la experiencia de tu café.</p>
+            </div>
+
+            <div class="grid-3 card-container">
+                <div class="card glass-card hover-3d">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Pastel de Zanahoria">
+                        <span class="card-badge">$85</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Pastel de Zanahoria Gourmet</h3>
+                        <p>Bizcocho esponjoso con nueces especiadas y cobertura suavecísima de queso crema.</p>
+                    </div>
+                </div>
+
+                <div class="card glass-card hover-3d">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800&auto=format&fit=crop" alt="Croissants de Mantequilla">
+                        <span class="card-badge">$50</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Croissant Francés Artesanal</h3>
+                        <p>Hojaldrado de mantequilla de origen europeo, crujiente por fuera y suave por dentro.</p>
+                    </div>
+                </div>
+
+                <div class="card glass-card hover-3d">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=800&auto=format&fit=crop" alt="Tarta de Frutos Rojos">
+                        <span class="card-badge">$80</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Tarta de Frutos del Bosque</h3>
+                        <p>Base crocante sablé, crema pastelera de vainilla pura de Papantla y frutos frescos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Chocolates Artesanales -->
+    <section id="chocolates" class="section-padding chocolates-section bg-dark">
+        <div class="container grid-2 align-center">
+            <div class="chocolates-content">
+                <span class="section-subtitle">PUREZA & ELEGANCIA</span>
+                <h2 class="section-title">Chocolatería Fina & Bombones</h2>
+                <p class="lead-text">Creamos piezas de arte comestibles utilizando cacao seleccionado de alta pureza.</p>
+                <p class="body-text">Nuestras colecciones de chocolates artesanales integran rellenos cremosos como maracuyá, café espresso, praliné de avellanas y sal marina con caramelo.</p>
+                
+                <ul class="chocolate-list" style="list-style: none; margin-bottom: 30px;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check-double text-gold"></i> Cacao 70% de origen ético y sustentable.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check-double text-gold"></i> Rellenos con ingredientes 100% naturales.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check-double text-gold"></i> Cajas de regalo exclusivas "Gift Boxes Shalom".</li>
+                </ul>
+
+                <a href="https://wa.me/529971668631?text=Deseo%20cotizar%20cajas%20de%20chocolates%20gourmet" target="_blank" class="btn btn-gold glow-effect"><i class="fa-solid fa-gift"></i> Cotizar Caja de Regalo</a>
+            </div>
+
+            <div class="chocolates-gallery">
+                <div class="grid-2-sm gap-md" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div class="img-card glass-card hover-3d" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=800&auto=format&fit=crop" alt="Bombones" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="img-card glass-card hover-3d" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=800&auto=format&fit=crop" alt="Tableta" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Menú Destacado con Filtros Dinámicos -->
+    <section id="menu" class="section-padding menu-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">NUESTRA CARTA</span>
+                <h2 class="section-title">Menú Completo</h2>
+                <p class="section-desc">Selecciona tu categoría favorita y descubre nuestras especialidades.</p>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filter-buttons text-center">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="chocolate">Chocolates artesanales</button>
+                <button class="filter-btn" data-filter="cakes">Pasteles</button>
+                <button class="filter-btn" data-filter="pastry">Repostería gourmet</button>
+                <button class="filter-btn" data-filter="bread">Pan artesanal</button>
+                <button class="filter-btn" data-filter="desserts">Postres</button>
+            </div>
+
+            <!-- Items del Menú -->
+            <div class="grid-3 menu-items-container">
+           
+                <div class="menu-item-card glass-card" data-category="chocolate">
+                    <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?q=80&w=600&auto=format&fit=crop" alt="Chocolates artesanales">
+                    <div class="menu-item-info">
+                        <div class="item-header">
+                            <h4>Chocolates Artesanales (Caja Fina)</h4>
+                            <span class="price">$120</span>
+                        </div>
+                        <p>Selección de bombones finos de cacao puro y rellenos de autor.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-card glass-card" data-category="cakes">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="Pasteles">
+                    <div class="menu-item-info">
+                        <div class="item-header">
+                            <h4>Pastel Gourmet de Zanahoria</h4>
+                            <span class="price">$85</span>
+                        </div>
+                        <p>Rebanada generosa con cobertura de queso crema y nueces.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-card glass-card" data-category="pastry">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Repostería gourmet">
+                    <div class="menu-item-info">
+                        <div class="item-header">
+                            <h4>Repostería Gourmet Finos</h4>
+                            <span class="price">$55</span>
+                        </div>
+                        <p>Especialidades dulces horneadas con ingredientes finos de la más alta calidad.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-card glass-card" data-category="bread">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Pan artesanal">
+                    <div class="menu-item-info">
+                        <div class="item-header">
+                            <h4>Pan Artesanal / Croissant</h4>
+                            <span class="price">$50</span>
+                        </div>
+                        <p>Hojaldrado de mantequilla crujiente y recién horneado.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-card glass-card" data-category="desserts">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=600&auto=format&fit=crop" alt="Postres">
+                    <div class="menu-item-info">
+                        <div class="item-header">
+                            <h4>Tarta de Frutos del Bosque</h4>
+                            <span class="price">$80</span>
+                        </div>
+                        <p>Base crujiente y crema pastelera con frutos frescos de temporada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Promociones -->
+    <section class="promo-banner section-padding">
+        <div class="container text-center">
+            <div class="promo-box glass-card glow-border" style="padding: 40px;">
+                <span class="promo-tag" style="color:var(--gold); font-size:0.85rem; letter-spacing:2px; font-weight:600;">OFERTA DE LA SEMANA</span>
+                <h2 style="font-family:'Playfair Display',serif; font-size:2rem; margin:15px 0;">Combo Shalom Morning</h2>
+                <p style="color:var(--text-muted); margin-bottom:25px;">1 Café Cappuccino / Espresso + 1 Croissant de Mantequilla o Rebanada de Pastel por solo <strong style="color:var(--text-main);">$99 MXN</strong>.</p>
+                <a href="https://wa.me/529971668631?text=Quiero%20aprovechar%20la%20promocion%20Shalom%20Morning" target="_blank" class="btn btn-gold btn-lg"><i class="fa-brands fa-whatsapp"></i> Ordenar Combo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Galería con Lightbox -->
+    <section class="section-padding gallery-section bg-dark">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">NUESTRO UNIVERSO VISUAL</span>
+                <h2 class="section-title">Galería de Experiencias</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item glass-card"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop" alt="Cafetería"><div class="overlay"><i class="fa-solid fa-expand"></i></div></div>
+                <div class="gallery-item glass-card"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop" alt="Café de especialidad"><div class="overlay"><i class="fa-solid fa-expand"></i></div></div>
+                <div class="gallery-item glass-card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Taza de café"><div class="overlay"><i class="fa-solid fa-expand"></i></div></div>
+                <div class="gallery-item glass-card"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" alt="Barista"><div class="overlay"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Ampliación">
+    </div>
+
+    <!-- 10. Opiniones / Carrusel -->
+    <section class="section-padding reviews-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">TESTIMONIOS</span>
+                <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            </div>
+
+            <div class="testimonials-carousel" style="max-width: 600px; margin: 0 auto;">
+                <div class="testimonial-card glass-card text-center" style="padding: 35px;">
+                    <div class="stars" style="color: var(--gold); margin-bottom: 15px;">★★★★★</div>
+                    <p class="review-text" style="color: var(--text-muted); font-style: italic; margin-bottom: 20px;">"El mejor café de la ciudad sin duda alguna. La atención es sumamente cálida y el pastel de zanahoria es sencillamente celestial."</p>
+                    <h4 class="client-name" style="font-family:'Playfair Display',serif; font-size: 1.1rem;">María Fernanda López</h4>
+                    <span class="client-role" style="font-size: 0.8rem; color: var(--gold);">Cliente Frecuente</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Ubicación e Información Actualizada -->
+    <section id="location" class="section-padding location-section bg-dark">
+        <div class="container grid-2">
+            <div class="location-info">
+                <span class="section-subtitle">VISÍTANOS</span>
+                <h2 class="section-title">Tu Nuevo Lugar Favorito</h2>
+                <p class="body-text">Ven a disfrutar de nuestro espacio diseñado para reconfortarte, trabajar tranquilamente o compartir con personas especiales.</p>
+                
+                <div class="info-list" style="margin-top: 30px;">
+                    <div class="info-item" style="display: flex; gap: 15px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-location-dot text-gold" style="font-size: 1.2rem; margin-top: 3px;"></i>
+                        <div>
+                            <h4 style="font-family:'Playfair Display',serif; margin-bottom: 3px;">Dirección</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">DGNAL 45 x 68 Av. Benito Juárez, Col. Juan Bautista Vega, Felipe Carrillo Puerto, Q. Roo.</p>
+                        </div>
+                    </div>
+                    <div class="info-item" style="display: flex; gap: 15px;">
+                        <i class="fa-solid fa-clock text-gold" style="font-size: 1.2rem; margin-top: 3px;"></i>
+                        <div>
+                            <h4 style="font-family:'Playfair Display',serif; margin-bottom: 3px;">Horario de Atención</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Lunes a Sábado: 8:00 AM – 9:00 PM<br>Domingo: 9:00 AM – 8:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container glass-card" style="padding: 10px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.123456789!2d-88.0435!3d19.5778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5fd85a12345678%3A0x123456789abcdef!2sAv%20Benito%20Ju%C3%A1rez%2C%20Juan%20Bautista%20Vega%2C%20Felipe%20Carrillo%20Puerto%2C%20Q.Roo.!5e0!3m2!1ses!2smx!4v1689000000000!5m2!1ses!2smx" width="100%" height="350" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Contacto con Envío Automático vía Web3Forms AJAX -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">ESTAMOS PARA SERVIRTE</span>
+                <h2 class="section-title">Haz tu Pedido o Cotización</h2>
+            </div>
+
+            <div class="form-wrapper glass-card max-width-600 center-margin">
+                <form id="form" class="contact-form">
+                    
+                    <!-- Tu Access Key -->
+                    <input type="hidden" name="access_key" value="30f7e866-6427-45cc-9383-b3e839ef3cdf">
+                    
+                    <!-- Asunto del correo -->
+                    <input type="hidden" name="subject" value="Nuevo mensaje desde la web de Coffee Shalom">
+
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono / WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Tu número de teléfono">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje o Pedido Especial</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Escribe aquí tu pedido de pasteles, chocolates o reserva..."></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="btn btn-gold btn-block glow-effect">Enviar Mensaje</button>
+                    <div id="result" style="margin-top: 15px; text-align: center; font-size: 0.95rem; font-weight: 500;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script AJAX para procesar el envío de Web3Forms sin errores -->
+    <script>
+        const form = document.getElementById('form');
+        const result = document.getElementById('result');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            result.innerHTML = "Enviando mensaje...";
+            result.style.color = "var(--gold)";
+            submitBtn.disabled = true;
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = "¡Mensaje enviado con éxito! Te contactaremos pronto.";
+                    result.style.color = "#4ade80"; 
+                    form.reset();
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message || "Ocurrió un error al enviar.";
+                    result.style.color = "#f87171"; 
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Error de conexión. Por favor intenta de nuevo.";
+                result.style.color = "#f87171";
+            })
+            .then(function() {
+                submitBtn.disabled = false;
+                setTimeout(() => {
+                    result.innerHTML = "";
+                }, 5000);
+            });
+        });
+    </script>
+
+    <!-- 13. WhatsApp Flotante -->
+    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20me%20gustaria%20mas%20informacion" class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- 14. Footer -->
+    <footer class="footer bg-dark">
+        <div class="container grid-4">
+            <div class="footer-brand">
+                <h3>COFFEE SHALOM</h3>
+                <p style="color:var(--gold); font-size:0.9rem; margin-bottom: 10px;">Café • Amor • Bendición</p>
+                <p class="small-desc" style="color:var(--text-muted); font-size:0.85rem;">Experiencias gastronómicas artesanales para reconfortar tu día.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#coffee">Café</a></li>
+                    <li><a href="#pastry">Repostería</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="#chocolates">Chocolates</a></li>
+                    <li><a href="#menu">Menú Completo</a></li>
+                    <li><a href="#location">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/529971668631" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Coffee Shalom. Todos los derechos reservados. | Diseñado con excelencia por <strong>Astro Code Studio</strong>.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts JS Principales -->
+    <script src="script.js"></script>
 </body>
 </html>
