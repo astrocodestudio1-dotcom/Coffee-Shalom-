@@ -1,41 +1,41 @@
 /* ==========================================================================
-   COFFEE SHALOM - INTERACTIVIDAD & ANIMACIONES (CORREGIDO Y DEFINITIVO)
+   COFFEE SHALOM - SCRIPT DEFINITIVO Y BLINDADO
    ========================================================================== */
 
-function initCoffeeShalom() {
-    // 1. Ocultar Loader de forma fluida y segura
-    const loader = document.getElementById('loader') || document.querySelector('.loader-wrapper');
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Loader Inteligente y Seguro (Se quita sí o sí)
+    const loader = document.getElementById('loader');
     const progress = document.querySelector('.progress');
     
     let width = 0;
     const interval = setInterval(() => {
+        width += 30;
+        if (progress) progress.style.width = width + '%';
         if (width >= 100) {
             clearInterval(interval);
             ocultarLoader();
-        } else {
-            width += Math.floor(Math.random() * 25) + 15;
-            if (width > 100) width = 100;
-            if (progress) progress.style.width = width + '%';
         }
     }, 40);
 
-    const safetyTimeout = setTimeout(() => {
+    // Seguridad total: A los 1.2 segundos el loader desaparece obligatoriamente
+    const safetyTimer = setTimeout(() => {
         ocultarLoader();
-    }, 1500);
+    }, 1200);
 
     function ocultarLoader() {
-        if (loader && loader.style.display !== 'none') {
+        if (loader) {
             loader.style.opacity = '0';
             loader.style.visibility = 'hidden';
             setTimeout(() => {
                 loader.style.display = 'none';
-                clearTimeout(safetyTimeout);
+                clearTimeout(safetyTimer);
             }, 300);
         }
     }
 
     // 2. Navbar Scroll Effect
-    const navbar = id('header') || document.querySelector('.navbar');
+    const navbar = document.getElementById('header');
     if (navbar) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -47,8 +47,8 @@ function initCoffeeShalom() {
     }
 
     // 3. Menú Mobile Toggle
-    const mobileToggle = id('mobile-toggle') || document.querySelector('.mobile-toggle');
-    const navMenu = id('nav-menu') || document.querySelector('.nav-menu');
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
 
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
@@ -66,10 +66,9 @@ function initCoffeeShalom() {
             const pos = heroStats.getBoundingClientRect().top;
             if (pos < window.innerHeight) {
                 statNumbers.forEach(stat => {
-                    const targetAttr = stat.getAttribute('data-target');
-                    const target = targetAttr ? +targetAttr : parseInt(stat.innerText) || 100;
+                    const target = parseInt(stat.getAttribute('data-target')) || 100;
                     let count = 0;
-                    const speed = target / 50 || 1;
+                    const speed = target / 30;
 
                     const updateCount = () => {
                         count += speed;
@@ -87,71 +86,18 @@ function initCoffeeShalom() {
         }
     });
 
-    // 5. Filtros Dinámicos del Menú
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const menuItems = document.querySelectorAll('.menu-item-card');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-
-            menuItems.forEach(item => {
-                if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    // 6. Lightbox de Galería
-    const galleryItems = document.querySelectorAll('.gallery-item img');
-    const lightbox = id('lightbox') || document.querySelector('.lightbox-modal');
-    const lightboxImg = id('lightbox-img') || document.querySelector('.lightbox-content');
-    const closeLightbox = document.querySelector('.close-lightbox');
-
-    if (lightbox && lightboxImg) {
-        galleryItems.forEach(img => {
-            img.addEventListener('click', () => {
-                lightbox.style.display = 'flex';
-                lightboxImg.src = img.src;
-            });
-        });
-
-        if (closeLightbox) {
-            closeLightbox.addEventListener('click', () => {
-                lightbox.style.display = 'none';
-            });
-        }
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-            }
-        });
-    }
-
-    // 7. Formulario de Contacto Avanzado con Redirección a WhatsApp (Número: 9971668631)
-    const contactForm = id('contact-form') || document.querySelector('#contact-form');
-    const formStatus = id('form-status') || document.querySelector('.form-status');
+    // 5. Formulario de Contacto y Redirección a WhatsApp
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const phoneInput = document.getElementById('phone');
-            const messageInput = document.getElementById('message');
-
-            const name = nameInput ? nameInput.value.trim() : '';
-            const email = emailInput ? emailInput.value.trim() : '';
-            const phone = phoneInput ? phoneInput.value.trim() : '';
-            const message = messageInput ? messageInput.value.trim() : '';
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
 
             if (!name || !email || !phone || !message) {
                 if (formStatus) {
@@ -188,23 +134,14 @@ function initCoffeeShalom() {
                         formStatus.textContent = "";
                         formStatus.className = "form-status";
                     }
-                }, 1500);
-            }, 1000);
+                }, 1000);
+            }, 800);
         });
     }
 
-    // 8. Partículas / Granos de Café Flotantes (Canvas)
+    // 6. Partículas / Granos de Café Flotantes (Canvas)
     initParticles();
-}
-
-// Ejecución segura sin importar si el DOM ya cargó o viene de caché
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCoffeeShalom);
-} else {
-    initCoffeeShalom();
-}
-
-function id(e) { return document.getElementById(e); }
+});
 
 function initParticles() {
     const canvas = document.getElementById('particles-canvas');
@@ -215,9 +152,7 @@ function initParticles() {
     canvas.height = window.innerHeight;
 
     let particles = [];
-    const numParticles = 25;
-
-    for (let i = 0; i < numParticles; i++) {
+    for (let i = 0; i < 20; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
@@ -229,8 +164,6 @@ function initParticles() {
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // CORRECCIÓN AQUÍ: Se eliminó el bloque erróneo y se usa directamente el forEach
         particles.forEach(p => {
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
@@ -240,7 +173,6 @@ function initParticles() {
             p.y += p.speedY;
             if (p.y < 0) p.y = canvas.height;
         });
-
         requestAnimationFrame(animate);
     }
 
