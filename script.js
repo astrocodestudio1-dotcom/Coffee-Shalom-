@@ -4,27 +4,40 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Ocultar Loader de forma fluida
+    // 1. Ocultar Loader de forma fluida (Corregido y asegurado)
     const loader = document.getElementById('loader') || document.querySelector('.loader-wrapper');
     const progress = document.querySelector('.progress');
     
-    let width = 0;
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval);
-            if (loader) {
-                loader.style.opacity = '0';
+    if (loader) {
+        let width = 0;
+        const interval = setInterval(() => {
+            width += Math.floor(Math.random() * 20) + 10;
+            if (width >= 100) {
+                width = 100;
+                clearInterval(interval);
+                if (progress) progress.style.width = '100%';
+                
                 setTimeout(() => {
+                    loader.style.opacity = '0';
                     loader.style.visibility = 'hidden';
                     loader.style.display = 'none';
-                }, 500);
+                }, 300);
+            } else {
+                if (progress) progress.style.width = width + '%';
             }
-        } else {
-            width += Math.floor(Math.random() * 15) + 5;
-            if (width > 100) width = 100;
-            if (progress) progress.style.width = width + '%';
-        }
-    }, 120);
+        }, 80);
+
+        // Fallback de seguridad por si el intervalo falla por cualquier motivo
+        setTimeout(() => {
+            if (loader.style.display !== 'none') {
+                clearInterval(interval);
+                if (progress) progress.style.width = '100%';
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+                loader.style.display = 'none';
+            }
+        }, 3000);
+    }
 
     // 2. Navbar Scroll Effect
     const navbar = id('header') || document.querySelector('.navbar');
