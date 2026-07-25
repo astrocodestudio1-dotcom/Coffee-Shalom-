@@ -1,10 +1,11 @@
 /* ==========================================================================
-   COFFEE SHALOM - INTERACTIVIDAD & ANIMACIONES
+   COFFEE SHALOM - INTERACTIVIDAD & ANIMACIONES (VERSIÓN CORREGIDA)
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+// Función principal de inicialización a prueba de fallos
+function initCoffeeShalom() {
 
-    // 1. Ocultar Loader de forma fluida
+    // 1. Ocultar Loader de forma fluida y segura
     const loader = document.getElementById('loader') || document.querySelector('.loader-wrapper');
     const progress = document.querySelector('.progress');
     
@@ -12,19 +13,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const interval = setInterval(() => {
         if (width >= 100) {
             clearInterval(interval);
-            if (loader) {
-                loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.visibility = 'hidden';
-                    loader.style.display = 'none';
-                }, 500);
-            }
+            ocultarLoader();
         } else {
-            width += Math.floor(Math.random() * 15) + 5;
+            width += Math.floor(Math.random() * 25) + 15; // Carga más fluida
             if (width > 100) width = 100;
             if (progress) progress.style.width = width + '%';
         }
-    }, 120);
+    }, 60);
+
+    // Sistema de seguridad: Si por algo la barra no llega, a los 2 segundos se quita el loader obligatoriamente
+    const safetyTimeout = setTimeout(() => {
+        ocultarLoader();
+    }, 2000);
+
+    function ocultarLoader() {
+        if (loader && loader.style.display !== 'none') {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.visibility = 'hidden';
+                loader.style.display = 'none';
+                clearTimeout(safetyTimeout);
+            }, 400);
+        }
+    }
 
     // 2. Navbar Scroll Effect
     const navbar = id('header') || document.querySelector('.navbar');
@@ -187,7 +198,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 8. Partículas / Granos de Café Flotantes (Canvas)
     initParticles();
-});
+}
+
+// Ejecución segura sin importar si el DOM ya cargó o viene de caché
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCoffeeShalom);
+} else {
+    initCoffeeShalom();
+}
 
 function id(e) { return document.getElementById(e); }
 
@@ -215,7 +233,7 @@ function initParticles() {
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        particles.forEach(p => {
+        particles.particles?.forEach || particles.forEach(p => {
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
             ctx.fillStyle = p.color;
