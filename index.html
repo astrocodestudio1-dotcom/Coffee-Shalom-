@@ -515,7 +515,7 @@
         </div>
     </section>
 
-    <!-- 12. Contacto Configurado con Web3Forms -->
+    <!-- 12. Contacto con Envío Automático vía Web3Forms AJAX -->
     <section id="contact" class="section-padding contact-section">
         <div class="container">
             <div class="section-header text-center">
@@ -524,12 +524,12 @@
             </div>
 
             <div class="form-wrapper glass-card max-width-600 center-margin">
-                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" class="contact-form">
+                <form id="form" class="contact-form">
                     
-                    <!-- Tu Access Key proporcionada -->
+                    <!-- Tu Access Key -->
                     <input type="hidden" name="access_key" value="30f7e866-6427-45cc-9383-b3e839ef3cdf">
                     
-                    <!-- Asunto del correo que recibirás -->
+                    <!-- Asunto del correo -->
                     <input type="hidden" name="subject" value="Nuevo mensaje desde la web de Coffee Shalom">
 
                     <div class="form-group">
@@ -552,15 +552,62 @@
                         <textarea id="message" name="message" rows="4" required placeholder="Escribe aquí tu pedido de pasteles, chocolates o reserva..."></textarea>
                     </div>
 
-                    <!-- Redirección al enviar o mostrar éxito -->
-                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
-
-                    <button type="submit" class="btn btn-gold btn-block glow-effect">Enviar Mensaje</button>
-                    <div id="form-status" class="form-status" style="margin-top: 15px; text-align: center; font-size: 0.9rem;"></div>
+                    <button type="submit" id="submit-btn" class="btn btn-gold btn-block glow-effect">Enviar Mensaje</button>
+                    <div id="result" style="margin-top: 15px; text-align: center; font-size: 0.95rem; font-weight: 500;"></div>
                 </form>
             </div>
         </div>
     </section>
+
+    <!-- Script AJAX para procesar el envío de Web3Forms sin errores -->
+    <script>
+        const form = document.getElementById('form');
+        const result = document.getElementById('result');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            result.innerHTML = "Enviando mensaje...";
+            result.style.color = "var(--gold)";
+            submitBtn.disabled = true;
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = "¡Mensaje enviado con éxito! Te contactaremos pronto.";
+                    result.style.color = "#4ade80"; // Verde éxito
+                    form.reset();
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message || "Ocurrió un error al enviar.";
+                    result.style.color = "#f87171"; // Rojo error
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Error de conexión. Por favor intenta de nuevo.";
+                result.style.color = "#f87171";
+            })
+            .then(function() {
+                submitBtn.disabled = false;
+                setTimeout(() => {
+                    result.innerHTML = "";
+                }, 5000);
+            });
+        });
+    </script>
 
     <!-- 13. WhatsApp Flotante con número integrado -->
     <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20me%20gustaria%20mas%20informacion" class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
