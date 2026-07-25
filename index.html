@@ -3,70 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Shalom | Café Gourmet, Repostería & Chocolates</title>
+    <title>Coffee Shalom | Café Gourmet & Repostería</title>
     
-    <!-- Meta Etiquetas SEO & Open Graph -->
-    <meta name="description" content="Coffee Shalom: Café de especialidad, repostería gourmet, chocolates artesanales y pan recién horneado. Café, Amor y Bendición en Felipe Carrillo Puerto.">
-    <meta property="og:title" content="Coffee Shalom | Experiencia Premium de Café">
-    <meta property="og:description" content="Café, Amor y Bendición en cada taza y postre de autor.">
-    <meta property="og:type" content="website">
+    <meta name="description" content="Coffee Shalom: Café Gourmet, Repostería Fina, Chocolates Artesanales y Pan de Autor en Felipe Carrillo Puerto. Café, Amor y Bendición.">
     
-    <!-- Google Fonts -->
+    <!-- Tipografías Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Stripe SDK (Preparado para activación futura) -->
+    <!-- SDK Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
-    <!-- LOADER PREMIUM CON EL LOGO REAL VECTORIZADO EN SVG -->
+    <!-- LOADER CON TU LOGO EXACTO VECTORIZADO -->
     <div id="loader">
         <div class="loader-content">
-            <svg class="logo-svg-full loader-logo" viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg">
-                <!-- Marco Ovalado Exterior con Filigranas -->
-                <ellipse cx="250" cy="240" rx="200" ry="160" fill="none" stroke="#D4AF37" stroke-width="3"/>
-                <ellipse cx="250" cy="240" rx="192" ry="152" fill="none" stroke="#3D2314" stroke-width="1.5" stroke-dasharray="3,3"/>
-                
-                <!-- Flor de Lis Superior -->
-                <path d="M 250 70 Q 242 50 250 35 Q 258 50 250 70 M 240 60 Q 250 65 260 60" fill="none" stroke="#D4AF37" stroke-width="2.5"/>
+            <svg class="shalom-logo-svg loader-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="250" cy="250" rx="200" ry="160" fill="none" stroke="#D4AF37" stroke-width="3"/>
+                <ellipse cx="250" cy="250" rx="192" ry="152" fill="none" stroke="#3D2314" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <path d="M 250 80 Q 240 60 250 40 Q 260 60 250 80 M 240 70 Q 250 75 260 70" fill="none" stroke="#D4AF37" stroke-width="3"/>
 
-                <!-- ILUSTRACIÓN TAZA DE CAFÉ -->
-                <g transform="translate(155, 100)">
+                <!-- TAZA DE CAFÉ -->
+                <g transform="translate(160, 110)">
                     <path class="steam steam-1" d="M 30 15 Q 25 5 30 -5" fill="none" stroke="#3D2314" stroke-width="2.5" stroke-linecap="round"/>
                     <path class="steam steam-2" d="M 40 12 Q 35 2 40 -8" fill="none" stroke="#3D2314" stroke-width="2.5" stroke-linecap="round"/>
-                    <path d="M 10 20 L 70 20 C 70 55 55 65 40 65 C 25 65 10 55 10 20 Z" fill="#FDFBF7" stroke="#3D2314" stroke-width="3.5"/>
-                    <path d="M 70 25 C 85 25 85 50 65 52" fill="none" stroke="#3D2314" stroke-width="3.5"/>
+                    <path d="M 10 20 L 70 20 C 70 55 55 65 40 65 C 25 65 10 55 10 20 Z" fill="#FDFBF7" stroke="#3D2314" stroke-width="4"/>
+                    <path d="M 70 25 C 85 25 85 50 65 52" fill="none" stroke="#3D2314" stroke-width="4"/>
                     <path d="M 40 38 C 38 32 30 32 30 38 C 30 44 40 50 40 50 C 40 50 50 44 50 38 C 50 32 42 32 40 38 Z" fill="#3D2314"/>
                     <ellipse cx="40" cy="68" rx="45" ry="8" fill="#FDFBF7" stroke="#3D2314" stroke-width="3"/>
                 </g>
 
-                <!-- ILUSTRACIÓN PASTEL (CAKE) CON CEREZA -->
-                <g transform="translate(255, 105)">
+                <!-- REBANADA DE PASTEL -->
+                <g transform="translate(260, 115)">
                     <path d="M 10 60 L 80 30 L 80 60 Z" fill="#3D2314"/>
                     <path d="M 10 45 L 80 15 L 80 30 L 10 60 Z" fill="#D7C4B7"/>
                     <path d="M 10 30 L 80 0 L 80 15 L 10 45 Z" fill="#3D2314"/>
                     <path d="M 80 0 C 60 10 50 0 30 15 C 20 10 10 25 10 30 L 80 15 Z" fill="#2C1810"/>
-                    <circle cx="55" cy="-2" r="9" fill="#FDFBF7" stroke="#3D2314" stroke-width="2"/>
-                    <circle cx="55" cy="-7" r="5" fill="#800020"/>
-                    <path d="M 55 -12 Q 63 -18 58 -25" fill="none" stroke="#3D2314" stroke-width="2"/>
+                    <circle cx="55" cy="-2" r="10" fill="#FDFBF7" stroke="#3D2314" stroke-width="2"/>
+                    <circle cx="55" cy="-8" r="6" fill="#800020"/>
+                    <path d="M 55 -14 Q 65 -20 60 -28" fill="none" stroke="#3D2314" stroke-width="2"/>
                 </g>
 
-                <!-- TEXTO: COFFEE SHALOM -->
-                <text x="250" y="245" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="38" fill="#2C1810" letter-spacing="1.5">COFFEE SHALOM</text>
-                
-                <!-- TEXTO: CAKES Y CORAZÓN -->
-                <line x1="170" y1="265" x2="330" y2="265" stroke="#D4AF37" stroke-width="1.5"/>
-                <polygon points="250,262 254,265 250,268 246,265" fill="#D4AF37"/>
-                <text x="250" y="295" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="600" font-size="20" fill="#D4AF37" letter-spacing="6">CAKES</text>
+                <!-- TEXTO PRINCIPAL -->
+                <text x="250" y="255" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="42" fill="#2C1810" letter-spacing="2">COFFEE SHALOM</text>
+                <path d="M 180 275 L 320 275" stroke="#D4AF37" stroke-width="1"/>
+                <polygon points="250,272 254,275 250,278 246,275" fill="#D4AF37"/>
+                <text x="250" y="305" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#D4AF37" letter-spacing="8">CAKES</text>
 
-                <!-- LEMA INFERIOR EN ARCO -->
-                <path id="loader-arc" d="M 120 360 A 170 130 0 0 0 380 360" fill="none"/>
-                <text font-family="'Montserrat', sans-serif" font-size="13" font-weight="600" fill="#2C1810" letter-spacing="3">
-                    <textPath href="#loader-arc" startOffset="50%" text-anchor="middle">
+                <!-- LEMA EN ARCO -->
+                <path id="text-arc" d="M 120 380 A 180 140 0 0 0 380 380" fill="none"/>
+                <text font-family="'Montserrat', sans-serif" font-size="14" font-weight="600" fill="#2C1810" letter-spacing="4">
+                    <textPath href="#text-arc" startOffset="50%" text-anchor="middle">
                         CAFÉ • AMOR • BENDICIÓN
                     </textPath>
                 </text>
@@ -75,24 +66,24 @@
         </div>
     </div>
 
-    <!-- NAVEGACIÓN PRINCIPAL -->
+    <!-- NAVEGACIÓN -->
     <header class="header">
         <nav class="navbar">
-            <a href="#" class="brand-logo" aria-label="Coffee Shalom Inicio">
-                <!-- LOGO EN HEADER -->
-                <svg class="logo-svg-header" viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="250" cy="240" rx="200" ry="160" fill="none" stroke="#D4AF37" stroke-width="4"/>
-                    <g transform="translate(155, 100)">
+            <a href="#" class="brand-logo">
+                <svg class="shalom-logo-svg nav-logo" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="250" cy="250" rx="200" ry="160" fill="none" stroke="#D4AF37" stroke-width="4"/>
+                    <g transform="translate(160, 110)">
                         <path class="steam steam-1" d="M 30 15 Q 25 5 30 -5" fill="none" stroke="#D4AF37" stroke-width="3"/>
                         <path class="steam steam-2" d="M 40 12 Q 35 2 40 -8" fill="none" stroke="#D4AF37" stroke-width="3"/>
-                        <path d="M 10 20 L 70 20 C 70 55 55 65 40 65 C 25 65 10 55 10 20 Z" fill="none" stroke="#D4AF37" stroke-width="4"/>
+                        <path d="M 10 20 L 70 20 C 70 55 55 65 40 65 C 25 65 10 55 10 20 Z" fill="none" stroke="#D4AF37" stroke-width="5"/>
+                        <path d="M 70 25 C 85 25 85 50 65 52" fill="none" stroke="#D4AF37" stroke-width="5"/>
                     </g>
-                    <g transform="translate(255, 105)">
+                    <g transform="translate(260, 115)">
                         <path d="M 10 60 L 80 30 L 80 60 Z" fill="#D4AF37"/>
-                        <circle cx="55" cy="-7" r="5" fill="#D4AF37"/>
+                        <circle cx="55" cy="-8" r="6" fill="#D4AF37"/>
                     </g>
-                    <text x="250" y="250" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="40" fill="#D4AF37">COFFEE SHALOM</text>
-                    <text x="250" y="295" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="600" font-size="20" fill="#FDFBF7" letter-spacing="6">CAKES</text>
+                    <text x="250" y="260" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="46" fill="#D4AF37" letter-spacing="2">COFFEE SHALOM</text>
+                    <text x="250" y="305" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#FDFBF7" letter-spacing="8">CAKES</text>
                 </svg>
             </a>
 
@@ -102,7 +93,6 @@
                 <li><a href="#chocolates">Chocolates</a></li>
                 <li><a href="#reposteria">Repostería</a></li>
                 <li><a href="#pan">Pan Artesanal</a></li>
-                <li><a href="#destacados">Destacados</a></li>
                 <li><a href="#catalogo">Catálogo</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -125,11 +115,11 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="gold-tag">Café • Amor • Bendición</span>
-            <h1>El Arte del Café y la Alta Repostería</h1>
-            <p>Sabor, tradición y exclusividad en cada grano y cada creación de autor.</p>
+            <h1>El Arte del Encuentro</h1>
+            <p>Un viaje sensorial de sabor, amor y bendición.</p>
             <div class="hero-buttons">
                 <a href="#catalogo" class="btn btn-gold">Explorar Selección</a>
-                <a href="#nosotros" class="btn btn-outline">Nuestra Historia</a>
+                <a href="#nosotros" class="btn btn-outline">Conócenos</a>
             </div>
         </div>
     </section>
@@ -137,31 +127,29 @@
     <!-- NOSOTROS -->
     <section class="section" id="nosotros">
         <div class="container grid-2">
-            <div class="img-wrapper reveal-left">
-                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80" alt="Experiencia Coffee Shalom" loading="lazy">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80" alt="Nuestra Historia" loading="lazy">
             </div>
-            <div class="content-wrapper reveal-right">
-                <span class="section-subtitle">NUESTRA ESSENCIA</span>
-                <h2>Pasión por la Perfección y la Tradición</h2>
-                <p>En <strong>Coffee Shalom</strong> seleccionamos cosechas de café excepcionales y creamos repostería de autor elaborada diariamente para brindar un momento de calidez y deleite.</p>
-                <blockquote class="gold-quote">
-                    "Café • Amor • Bendición en cada momento."
-                </blockquote>
+            <div class="content-wrapper">
+                <span class="section-subtitle">NUESTRA HISTORIA</span>
+                <h2>Calidad Suprema y Bendición en Cada Taza</h2>
+                <p>En <strong>Coffee Shalom</strong> elaboramos cada producto con dedicación, combinando granos de café seleccionados con repostería fina y chocolates gourmet que deslumbran los sentidos.</p>
+                <blockquote class="gold-quote">"Café • Amor • Bendición"</blockquote>
             </div>
         </div>
     </section>
 
-    <!-- NUESTRO CAFÉ COFFEE SHALOM -->
+    <!-- NUESTRO CAFÉ -->
     <section class="section bg-dark" id="cafe">
         <div class="container grid-2 reverse">
-            <div class="content-wrapper reveal-left">
+            <div class="content-wrapper">
                 <span class="section-subtitle">NUESTRO PRODUCTO ESTRELLA</span>
-                <h2>Café Coffee Shalom</h2>
-                <p>Granos cuidadosamente tostados para resaltar notas aromáticas profundas, acidez equilibrada y cuerpo aterciopelado en cada taza.</p>
-                <a href="#catalogo" class="btn btn-gold">Comprar Café</a>
+                <h2>Café Shalom - Tradición y Tueste Perfecto</h2>
+                <p>Tueste perfecto, aroma envolvente y cuerpo equilibrado. Cosechado y tostado bajo los más altos estándares.</p>
+                <a href="#catalogo" class="btn btn-gold">Añadir al Carrito</a>
             </div>
-            <div class="img-wrapper reveal-right">
-                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=1000&q=80" alt="Empaques y Granos de Café Shalom" loading="lazy">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=1000&q=80" alt="Café Shalom" loading="lazy">
             </div>
         </div>
     </section>
@@ -169,53 +157,28 @@
     <!-- CHOCOLATES ARTESANALES -->
     <section class="section" id="chocolates">
         <div class="container grid-2">
-            <div class="img-wrapper reveal-left">
-                <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=1000&q=80" alt="Chocolates Artesanales Shalom" loading="lazy">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=1000&q=80" alt="Chocolates Artesanales" loading="lazy">
             </div>
-            <div class="content-wrapper reveal-right">
-                <span class="section-subtitle">DELICADEZA & SABOR</span>
+            <div class="content-wrapper">
+                <span class="section-subtitle">DULCE ESENCIA</span>
                 <h2>Chocolates Artesanales</h2>
-                <p>Cacao fino de autor moldeado en bombones y trufas finas con rellenos cremosos, frutos secos y finos toques de especias.</p>
+                <p>Trufas de autor y bombones elaborados con cacaos finos de aroma y rellenos artesanales únicos.</p>
             </div>
         </div>
     </section>
 
-    <!-- REPOSTERÍA GOURMET -->
+    <!-- REPOSTERÍA Y PAN -->
     <section class="section bg-dark" id="reposteria">
         <div class="container grid-2 reverse">
-            <div class="content-wrapper reveal-left">
-                <span class="section-subtitle">DULCE DEDICACIÓN</span>
-                <h2>Repostería Gourmet & Postres</h2>
-                <p>Pasteles artesanales, tartas de crema fina y repostería individual diseñada para maridar perfectamente con nuestro café.</p>
+            <div class="content-wrapper">
+                <span class="section-subtitle">PLACERES HORNEADOS</span>
+                <h2>Repostería Gourmet & Pan Artesanal</h2>
+                <p>Desde tartas exquisitas de chocolate y cerezo hasta pan recién horneado con masa madre directamente del horno a tu mesa.</p>
             </div>
-            <div class="img-wrapper reveal-right">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80" alt="Repostería Gourmet Coffee Shalom" loading="lazy">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80" alt="Repostería y Pan Artesanal" loading="lazy">
             </div>
-        </div>
-    </section>
-
-    <!-- PAN ARTESANAL -->
-    <section class="section" id="pan">
-        <div class="container grid-2">
-            <div class="img-wrapper reveal-left">
-                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80" alt="Pan Artesanal Horneado" loading="lazy">
-            </div>
-            <div class="content-wrapper reveal-right">
-                <span class="section-subtitle">RECIÉN HORNEADO</span>
-                <h2>Pan Artesanal</h2>
-                <p>Horneado tradicional con masa madre e ingredientes 100% naturales. Croissants crujientes, panes rústicos y piezas saladas y dulces.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCTOS DESTACADOS -->
-    <section class="section bg-dark" id="destacados">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-subtitle">LO MÁS SOLICITADO</span>
-                <h2>Productos Destacados</h2>
-            </div>
-            <div class="product-grid" id="featured-container"></div>
         </div>
     </section>
 
@@ -223,22 +186,21 @@
     <section class="section" id="catalogo">
         <div class="container">
             <div class="text-center">
-                <span class="section-subtitle">SELECCIÓN COMPLETA</span>
-                <h2>Catálogo de Productos</h2>
+                <span class="section-subtitle">PRODUCTOS DESTACADOS</span>
+                <h2>Nuestro Catálogo</h2>
             </div>
             <div class="product-grid" id="product-container"></div>
         </div>
     </section>
 
-    <!-- TESTIMONIOS (CARROUSEL) -->
+    <!-- TESTIMONIOS -->
     <section class="section bg-dark">
-        <div class="container text-center max-800">
-            <span class="section-subtitle">RESEÑAS</span>
-            <h2>Lo que dicen nuestros visitantes</h2>
-            <div class="testimonial-box">
-                <p class="testimonial-text" id="testimonial-text">"El mejor café de la ciudad. La combinación del aroma con los pasteles recién horneados es Sencillamente inolvidable."</p>
-                <h4 id="testimonial-author">— María Elena R.</h4>
-            </div>
+        <div class="container max-800 text-center">
+            <span class="section-subtitle">TESTIMONIOS</span>
+            <h2>Lo que opinan nuestros clientes</h2>
+            <blockquote class="gold-quote" style="border:none; font-size:1.3rem; margin-top:20px;">
+                "Una experiencia inolvidable. El aroma del café Shalom combinado con sus trufas de autor es simplemente perfecto."
+            </blockquote>
         </div>
     </section>
 
@@ -246,17 +208,17 @@
     <section class="section">
         <div class="container max-800">
             <div class="text-center">
-                <span class="section-subtitle">RESOLVEMOS TUS DUDAS</span>
+                <span class="section-subtitle">DUDAS</span>
                 <h2>Preguntas Frecuentes</h2>
             </div>
             <div class="faq-list">
                 <details class="faq-item">
-                    <summary>¿Cómo realizo un pedido por el sitio o WhatsApp?</summary>
-                    <p>Puedes agregar tus productos al carrito de compras e iniciar el pago, o presionar el botón de WhatsApp en la esquina inferior derecha para una atención directa.</p>
+                    <summary>¿Cómo realizo un pedido directo?</summary>
+                    <p>Puedes agregar tus productos al carrito y pagar en línea o tocar el botón flotante de WhatsApp para atención inmediata.</p>
                 </details>
                 <details class="faq-item">
-                    <summary>¿Qué origen tiene el café Coffee Shalom?</summary>
-                    <p>Seleccionamos granos premium de fincas mexicanas reconocidas con tueste artesanal propio.</p>
+                    <summary>¿Tienen envíos o dudas de compra?</summary>
+                    <p>Sí, contáctanos directamente a nuestro correo coffeshalom1@gmail.com o vía WhatsApp.</p>
                 </details>
             </div>
         </div>
@@ -266,24 +228,22 @@
     <section class="section bg-dark" id="contacto">
         <div class="container grid-2">
             <div>
-                <span class="section-subtitle">UBICACIÓN Y ATENCIÓN</span>
-                <h2>Visítanos o Escríbenos</h2>
+                <span class="section-subtitle">UBICACIÓN</span>
+                <h2>Visítanos</h2>
                 <address class="address-box">
-                    <strong>Dirección:</strong><br>
                     DGNAL 45 x 68 y Av. Benito Juárez<br>
                     Colonia Juan Bautista Vega<br>
                     Felipe Carrillo Puerto, Quintana Roo, México
                 </address>
                 <p style="margin-top:20px; color:var(--color-gold);">📧 coffeshalom1@gmail.com</p>
             </div>
-
             <div>
-                <form id="contact-form" class="custom-form" novalidate>
-                    <div class="form-group"><input type="text" id="name" placeholder="Nombre Completo *" required></div>
-                    <div class="form-group"><input type="email" id="email" placeholder="Correo Electrónico *" required></div>
-                    <div class="form-group"><input type="tel" id="phone" placeholder="Teléfono *" required></div>
-                    <div class="form-group"><input type="text" id="subject" placeholder="Asunto *" required></div>
-                    <div class="form-group"><textarea id="message" rows="4" placeholder="Mensaje *" required></textarea></div>
+                <form id="contact-form" class="custom-form">
+                    <div class="form-group"><input type="text" id="name" placeholder="Nombre" required></div>
+                    <div class="form-group"><input type="email" id="email" placeholder="Correo" required></div>
+                    <div class="form-group"><input type="tel" id="phone" placeholder="Teléfono" required></div>
+                    <div class="form-group"><input type="text" id="subject" placeholder="Asunto" required></div>
+                    <div class="form-group"><textarea id="message" rows="4" placeholder="Mensaje" required></textarea></div>
                     <button type="submit" class="btn btn-gold btn-block">Enviar Mensaje</button>
                     <div id="form-feedback"></div>
                 </form>
@@ -294,19 +254,19 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container text-center">
-            <svg class="logo-svg-header" viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg" style="width:140px; height:80px; margin:0 auto 15px;">
-                <ellipse cx="250" cy="240" rx="200" ry="160" fill="none" stroke="#D4AF37" stroke-width="4"/>
-                <text x="250" y="250" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="40" fill="#D4AF37">COFFEE SHALOM</text>
-                <text x="250" y="295" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="600" font-size="20" fill="#FDFBF7" letter-spacing="6">CAKES</text>
+            <svg class="shalom-logo-svg nav-logo" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:120px; height:120px; margin:0 auto 15px;">
+                <ellipse cx="250" cy="250" rx="200" ry="160" fill="none" stroke="#D4AF37" stroke-width="4"/>
+                <text x="250" y="260" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="46" fill="#D4AF37">COFFEE SHALOM</text>
+                <text x="250" y="305" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#FDFBF7" letter-spacing="8">CAKES</text>
             </svg>
-            <p style="color:var(--color-beige); font-size:0.9rem;">&copy; 2026 Coffee Shalom. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Coffee Shalom. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- CARRITO DE COMPRAS MODAL / SIDEBAR -->
+    <!-- CARRITO SIDEBAR -->
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="cart-header">
-            <h3>Tu Carrito</h3>
+            <h3>Carrito de Compras</h3>
             <button id="close-cart" class="close-btn">&times;</button>
         </div>
         <div id="cart-items" class="cart-body"></div>
@@ -321,15 +281,10 @@
     </div>
     <div id="cart-overlay" class="cart-overlay"></div>
 
-    <!-- BOTÓN UNICO FLOTANTE DE WHATSAPP -->
+    <!-- UN SOLO BOTÓN FLOTANTE DE WHATSAPP -->
     <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95.%20Me%20gustar%C3%ADa%20realizar%20un%20pedido." 
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       aria-label="Contactar vía WhatsApp">
-        <svg viewBox="0 0 32 32" class="whatsapp-icon">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.135c2.373 1.284 5.056 1.96 7.865 1.96 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.28c-2.43 0-4.809-0.655-6.886-1.895l-0.494-0.295-5.115 1.341 1.366-5.083-0.323-0.514c-1.364-2.167-2.087-4.682-2.087-7.254 0-7.323 5.957-13.28 13.28-13.28s13.28 5.957 13.28 13.28c0 7.323-5.957 13.28-13.28 13.28z" fill="#FFF"/>
-        </svg>
+       class="whatsapp-float" target="_blank" aria-label="Contacto WhatsApp">
+        <svg viewBox="0 0 32 32" width="30" height="30"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.135c2.373 1.284 5.056 1.96 7.865 1.96 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.28c-2.43 0-4.809-0.655-6.886-1.895l-0.494-0.295-5.115 1.341 1.366-5.083-0.323-0.514c-1.364-2.167-2.087-4.682-2.087-7.254 0-7.323 5.957-13.28 13.28-13.28s13.28 5.957 13.28 13.28c0 7.323-5.957 13.28-13.28 13.28z" fill="#FFF"/></svg>
     </a>
 
     <script src="script.js"></script>
