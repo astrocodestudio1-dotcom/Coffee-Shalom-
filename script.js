@@ -1,20 +1,20 @@
 /* ==========================================================================
-   COFFEE SHALOM - INTERACTIVIDAD & ANIMACIONES
+   COFFEE SHALOM - INTERACTIVIDAD & CONTROLADORES DE ANIMACIÓN
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Ocultar Loader
+    // 1. Loader Control
     setTimeout(() => {
         const loader = document.getElementById('loader');
         if (loader) {
             loader.style.opacity = '0';
             loader.style.visibility = 'hidden';
         }
-    }, 2000);
+    }, 1800);
 
-    // 2. Navbar Scroll Effect
-    const navbar = id('header');
+    // 2. Transición del Header en Scroll
+    const navbar = document.getElementById('header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. Menú Mobile Toggle
-    const mobileToggle = id('mobile-toggle');
-    const navMenu = id('nav-menu');
+    // 3. Menú Móvil Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
 
     if (mobileToggle) {
         mobileToggle.addEventListener('click', () => {
@@ -33,7 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Efecto de Contadores Animados en Hero
+    // 4. Scroll Reveal Observer
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 5. Animación de Contadores Estadísticos
     const statNumbers = document.querySelectorAll('.stat-number');
     let animatedStats = false;
 
@@ -45,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 statNumbers.forEach(stat => {
                     const target = +stat.getAttribute('data-target');
                     let count = 0;
-                    const speed = target / 50;
+                    const speed = target / 40;
 
                     const updateCount = () => {
                         count += speed;
@@ -63,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 5. Filtros Dinámicos del Menú
+    // 6. Filtro Dinámico para Menú
     const filterBtns = document.querySelectorAll('.filter-btn');
     const menuItems = document.querySelectorAll('.menu-item-card');
 
@@ -84,10 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 6. Lightbox de Galería
+    // 7. Lightbox de Galería
     const galleryItems = document.querySelectorAll('.gallery-item img');
-    const lightbox = id('lightbox');
-    const lightboxImg = id('lightbox-img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
     const closeLightbox = document.querySelector('.close-lightbox');
 
     galleryItems.forEach(img => {
@@ -103,23 +115,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Formulario de Contacto
-    const contactForm = id('contact-form');
-    const formStatus = id('form-status');
+    // 8. Envío de Formulario
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            formStatus.innerHTML = '<p style="color: #C9A227; margin-top: 15px;">¡Gracias! Tu mensaje ha sido enviado con éxito. Te contactaremos pronto.</p>';
+            formStatus.innerHTML = '<p style="color: #C9A227; margin-top: 15px;">¡Muchas gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto a la brevedad.</p>';
             contactForm.reset();
         });
     }
 
-    // 8. Partículas / Granos de Café Flotantes (Canvas)
+    // 9. Motor de Partículas Interactivas
     initParticles();
 });
-
-function id(e) { return document.getElementById(e); }
 
 function initParticles() {
     const canvas = document.getElementById('particles-canvas');
@@ -130,15 +140,15 @@ function initParticles() {
     canvas.height = window.innerHeight;
 
     let particles = [];
-    const numParticles = 25;
+    const numParticles = 30;
 
     for (let i = 0; i < numParticles; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            radius: Math.random() * 3 + 1,
+            radius: Math.random() * 2.5 + 1,
             color: 'rgba(201, 162, 39, ' + (Math.random() * 0.3 + 0.1) + ')',
-            speedY: -Math.random() * 0.5 - 0.2
+            speedY: -Math.random() * 0.4 - 0.1
         });
     }
 
