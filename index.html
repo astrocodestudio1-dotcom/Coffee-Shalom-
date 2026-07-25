@@ -155,66 +155,158 @@
         </div>
     </section>
 
-    <!-- 4. Nuestro Café -->
+    <!-- 4. Nuestro Café (Carrusel Dinámico con las 4 opciones solicitadas) -->
     <section id="coffee" class="section-padding coffee-section bg-dark">
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-subtitle">SELECCIÓN EXCLUSIVA</span>
                 <h2 class="section-title">Nuestra Pasión por el Café</h2>
-                <p class="section-desc">Extraído con precisión para resaltar notas únicas de sabor y aroma.</p>
+                <p class="section-desc">Desliza para conocer nuestras líneas y presentaciones especiales.</p>
             </div>
 
-            <div class="grid-3 card-container">
-                <!-- Card 1 -->
-                <div class="card glass-card hover-3d">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=800&auto=format&fit=crop" alt="Espresso Italiano">
-                        <span class="card-badge">$45</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Espresso Shalom</h3>
-                        <p>Extracción intensa de cuerpo denso con crema dorada y notas a avellana y cacao.</p>
-                        <div class="card-footer">
-                            <span class="intensity"><i class="fa-solid fa-fire"></i> Intensidad: Alta</span>
-                            <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20un%20Espresso%20Shalom" target="_blank" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+            <!-- Contenedor Principal del Carrusel -->
+            <div class="coffee-carousel-wrapper" style="position: relative; max-width: 1200px; margin: 0 auto; overflow: hidden; padding: 20px 0;">
+                
+                <!-- Botón Izquierda -->
+                <button class="carousel-btn prev-btn" id="coffee-prev" aria-label="Anterior" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); z-index: 10; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold); color: var(--gold); width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <!-- Pista del Carrusel -->
+                <div class="coffee-track-container" style="overflow: hidden; margin: 0 50px;">
+                    <div class="coffee-track" id="coffee-track" style="display: flex; gap: 30px; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);">
+                        
+                        <!-- Item 1: Café Coffee Shalom -->
+                        <div class="coffee-slide-card glass-card hover-3d" style="min-width: calc(33.333% - 20px); flex: 0 0 calc(33.333% - 20px); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                            <div class="card-img" style="height: 240px; overflow: hidden; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop" alt="Café Coffee Shalom Especial" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                                <span class="card-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: #000; padding: 5px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">$70</span>
+                            </div>
+                            <div class="card-body" style="padding: 25px; display: flex; flex-direction: column; flex-grow: 1;">
+                                <h3 style="font-family:'Playfair Display',serif; font-size: 1.3rem; margin-bottom: 10px;">Café Coffee Shalom</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1;">Nuestra mezcla exclusiva de la casa, tostado medio con notas aromáticas únicas y cuerpo equilibrado.</p>
+                                <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                    <span class="intensity" style="font-size: 0.85rem; color: var(--gold);"><i class="fa-solid fa-mug-hot"></i> Especialidad</span>
+                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Café%20Coffee%20Shalom" target="_blank" class="btn-link" style="color: var(--gold); font-weight: 600;">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Item 2: Granos de café -->
+                        <div class="coffee-slide-card glass-card hover-3d" style="min-width: calc(33.333% - 20px); flex: 0 0 calc(33.333% - 20px); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                            <div class="card-img" style="height: 240px; overflow: hidden; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=800&auto=format&fit=crop" alt="Granos de café" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                                <span class="card-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: #000; padding: 5px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">$180</span>
+                            </div>
+                            <div class="card-body" style="padding: 25px; display: flex; flex-direction: column; flex-grow: 1;">
+                                <h3 style="font-family:'Playfair Display',serif; font-size: 1.3rem; margin-bottom: 10px;">Granos de café</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1;">Granos de altura seleccionados cuidadosamente para conservar frescura y molienda perfecta en casa.</p>
+                                <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                    <span class="intensity" style="font-size: 0.85rem; color: var(--gold);"><i class="fa-solid fa-seedling"></i> 100% Arábica</span>
+                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Granos%20de%20café" target="_blank" class="btn-link" style="color: var(--gold); font-weight: 600;">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Café molido -->
+                        <div class="coffee-slide-card glass-card hover-3d" style="min-width: calc(33.333% - 20px); flex: 0 0 calc(33.333% - 20px); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                            <div class="card-img" style="height: 240px; overflow: hidden; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?q=80&w=800&auto=format&fit=crop" alt="Café molido" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                                <span class="card-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: #000; padding: 5px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">$165</span>
+                            </div>
+                            <div class="card-body" style="padding: 25px; display: flex; flex-direction: column; flex-grow: 1;">
+                                <h3 style="font-family:'Playfair Display',serif; font-size: 1.3rem; margin-bottom: 10px;">Café molido</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1;">Molienda ideal y equilibrada para cafetera de filtro, prensa francesa o métodos de goteo.</p>
+                                <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                    <span class="intensity" style="font-size: 0.85rem; color: var(--gold);"><i class="fa-solid fa-fire"></i> Molido Fino/Medio</span>
+                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Café%20molido" target="_blank" class="btn-link" style="color: var(--gold); font-weight: 600;">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4: Empaques del Café -->
+                        <div class="coffee-slide-card glass-card hover-3d" style="min-width: calc(33.333% - 20px); flex: 0 0 calc(33.333% - 20px); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                            <div class="card-img" style="height: 240px; overflow: hidden; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1610884693305-6f7d71b26912?q=80&w=800&auto=format&fit=crop" alt="Empaques del Café" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                                <span class="card-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: #000; padding: 5px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">$210</span>
+                            </div>
+                            <div class="card-body" style="padding: 25px; display: flex; flex-direction: column; flex-grow: 1;">
+                                <h3 style="font-family:'Playfair Display',serif; font-size: 1.3rem; margin-bottom: 10px;">Empaques del Café</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1;">Bolsa sellada hermética con válvula desgasificadora y diseño exclusivo, perfecto para obsequiar.</p>
+                                <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                    <span class="intensity" style="font-size: 0.85rem; color: var(--gold);"><i class="fa-solid fa-gift"></i> Edición Regalo</span>
+                                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20Empaques%20del%20Café" target="_blank" class="btn-link" style="color: var(--gold); font-weight: 600;">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="card glass-card hover-3d">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=800&auto=format&fit=crop" alt="Cappuccino Cremoso">
-                        <span class="card-badge">$65</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Cappuccino Velvet</h3>
-                        <p>Mezcla armoniosa de espresso, leche emulsionada sedosa y un toque de canela gourmet.</p>
-                        <div class="card-footer">
-                            <span class="intensity"><i class="fa-solid fa-fire"></i> Intensidad: Media</span>
-                            <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20un%20Cappuccino%20Velvet" target="_blank" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Botón Derecha -->
+                <button class="carousel-btn next-btn" id="coffee-next" aria-label="Siguiente" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); z-index: 10; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold); color: var(--gold); width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
 
-                <!-- Card 3 -->
-                <div class="card glass-card hover-3d">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=800&auto=format&fit=crop" alt="Latte Frío de Especialidad">
-                        <span class="card-badge">$75</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Iced Caramel Latte</h3>
-                        <p>Café frío infusionado con caramelo artesanal, leche fría y cubos de hielo de café purificado.</p>
-                        <div class="card-footer">
-                            <span class="intensity"><i class="fa-solid fa-snowflake"></i> Frío & Dulce</span>
-                            <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20pedir%20un%20Iced%20Caramel%20Latte" target="_blank" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
+
+    <!-- Script de control para el carrusel de café -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const track = document.getElementById('coffee-track');
+            const slides = Array.from(track.children);
+            const nextButton = document.getElementById('coffee-next');
+            const prevButton = document.getElementById('coffee-prev');
+
+            let currentIndex = 0;
+
+            function getSlidesPerView() {
+                if (window.innerWidth <= 768) return 1;
+                if (window.innerWidth <= 1024) return 2;
+                return 3;
+            }
+
+            function updateCarousel() {
+                const slidesPerView = getSlidesPerView();
+                const maxIndex = slides.length - slidesPerView;
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                if (currentIndex < 0) currentIndex = 0;
+
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                const gap = 30; 
+                const moveAmount = currentIndex * (slideWidth + gap);
+                track.style.transform = `translateX(-${moveAmount}px)`;
+            }
+
+            nextButton.addEventListener('click', () => {
+                const slidesPerView = getSlidesPerView();
+                const maxIndex = slides.length - slidesPerView;
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateCarousel();
+                } else {
+                    currentIndex = 0; 
+                    updateCarousel();
+                }
+            });
+
+            prevButton.addEventListener('click', () => {
+                const slidesPerView = getSlidesPerView();
+                const maxIndex = slides.length - slidesPerView;
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                } else {
+                    currentIndex = maxIndex; 
+                    updateCarousel();
+                }
+            });
+
+            window.addEventListener('resize', updateCarousel);
+        });
+    </script>
 
     <!-- 5. Repostería Gourmet -->
     <section id="pastry" class="section-padding pastry-section">
@@ -578,12 +670,12 @@
                 let json = await response.json();
                 if (response.status == 200) {
                     result.innerHTML = "¡Mensaje enviado con éxito! Te contactaremos pronto.";
-                    result.style.color = "#4ade80"; // Verde éxito
+                    result.style.color = "#4ade80"; 
                     form.reset();
                 } else {
                     console.log(response);
                     result.innerHTML = json.message || "Ocurrió un error al enviar.";
-                    result.style.color = "#f87171"; // Rojo error
+                    result.style.color = "#f87171"; 
                 }
             })
             .catch(error => {
@@ -645,7 +737,7 @@
         </div>
     </footer>
 
-    <!-- Scripts JS -->
+    <!-- Scripts JS Principales -->
     <script src="script.js"></script>
 </body>
 </html>
