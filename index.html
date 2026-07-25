@@ -3,117 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Coffee Shalom | Experiencia Internacional de Café y Repostería</title>
-    <!-- Fuentes Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,500;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
+    <title>Coffee Shalom | Café Artesanal, Repostería Gourmet & Chocolates</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="Bienvenido a Coffee Shalom. Disfruta del mejor café artesanal, repostería gourmet de autor, chocolates artesanales y desayunos en un ambiente único. Café • Amor • Bendición.">
+    <meta name="keywords" content="Café artesanal, repostería gourmet, chocolates, café especialidad, postres, desayunos, Coffee Shalom">
+    <meta name="author" content="Coffee Shalom x Astro Code Studio">
+    
+    <meta property="og:title" content="Coffee Shalom | Experiencia Gastronómica Gourmet">
+    <meta property="og:description" content="Café de especialidad, repostería fina y chocolates artesanales hechos con amor y bendición.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Estilos CSS -->
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Corrección de color para hipervínculos (Evita morado/azul por defecto) -->
+    <style>
+        a, a:visited, a:active, a:hover {
+            color: inherit; /* Hereda el color del texto o puedes asignarle uno fijo como var(--text-main) o el que prefieras */
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Canvas para Partículas / Granos de Café Flotantes -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- 1. LOADER -->
-    <div class="loader-wrapper" id="loader">
+    <!-- 1. Loader Elegante -->
+    <div id="loader" class="loader-wrapper">
         <div class="loader-content">
             <div class="cup-icon">
                 <i class="fa-solid fa-mug-hot"></i>
                 <div class="steam-container">
-                    <div class="steam"></div>
-                    <div class="steam"></div>
-                    <div class="steam"></div>
+                    <span class="steam"></span>
+                    <span class="steam"></span>
+                    <span class="steam"></span>
                 </div>
             </div>
-            <div class="tagline-loader">Coffee Shalom</div>
-            <div class="progress-bar">
-                <div class="progress"></div>
-            </div>
+            <h2>COFFEE SHALOM</h2>
+            <p class="tagline-loader">Café • Amor • Bendición</p>
+            <div class="progress-bar"><div class="progress"></div></div>
         </div>
     </div>
 
-    <!-- NAVBAR & HEADER -->
-    <header class="navbar" id="header">
+    <!-- Canvas de Partículas / Granos de Café Flotantes -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navegación Header -->
+    <header id="header" class="navbar">
         <div class="container nav-container">
-            <a href="#" class="brand-logo">
-                <span class="logo-text">Coffee Shalom</span>
-                <span class="logo-sub">PREMIUM EXPERIENCE</span>
+            <a href="#hero" class="brand-logo">
+                <span class="logo-text">COFFEE SHALOM</span>
+                <span class="logo-sub">CAKES & COFFEE</span>
             </a>
             <nav class="nav-menu" id="nav-menu">
                 <ul>
-                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
-                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-                    <li><a href="#menu" class="nav-link">Catálogo</a></li>
-                    <li><a href="#galeria" class="nav-link">Galería</a></li>
-                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="#hero" class="nav-link active">Inicio</a></li>
+                    <li><a href="#about" class="nav-link">Nosotros</a></li>
+                    <li><a href="#coffee" class="nav-link">Nuestro Café</a></li>
+                    <li><a href="#pastry" class="nav-link">Repostería</a></li>
+                    <li><a href="#chocolates" class="nav-link">Chocolates</a></li>
+                    <li><a href="#menu" class="nav-link">Menú</a></li>
+                    <li><a href="#location" class="nav-link">Ubicación</a></li>
+                    <li><a href="#contact" class="nav-link">Contacto</a></li>
                 </ul>
             </nav>
-            <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+            <div class="nav-actions">
+                <a href="https://wa.me/?text=Hola%20Coffee%20Shalom,%20quisiera%20realizar%20un%20pedido" target="_blank" class="btn btn-gold btn-sm"><i class="fa-brands fa-whatsapp"></i> Pedir Ahora</a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- 2. HERO SECTION -->
-    <section class="hero-section" id="inicio">
+    <!-- 2. Hero Section -->
+    <section id="hero" class="hero-section">
         <div class="hero-bg-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-badge glow-effect">☕ EXCELENCIA INTERNACIONAL</span>
-                <h1 class="hero-title">Café Coffee Shalom</h1>
-                <p class="hero-slogan">El Arte de Servir una Experiencia Única</p>
-                <p class="hero-description">Descubre nuestra exclusiva selección de granos de altura, café molido artesanalmente, repostería gourmet y postres que despiertan tus sentidos.</p>
-                <div class="hero-buttons">
-                    <a href="#menu" class="btn btn-gold">Ver Catálogo</a>
-                    <a href="#contacto" class="btn btn-outline">Hacer Pedido</a>
+        <div class="hero-content container">
+            <div class="hero-badge">
+                <span class="star">✦</span> Sabor Artesanal & Calidez Premium <span class="star">✦</span>
+            </div>
+            <h1 class="hero-title">COFFEE SHALOM</h1>
+            <p class="hero-slogan">Café • Amor • Bendición</p>
+            <p class="hero-description">Una experiencia gastronómica donde cada taza de café artesanal, postre gourmet y chocolate hecho a mano reconforta el alma.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-gold btn-lg glow-effect">Descubre Nuestro Sabor</a>
+                <a href="#about" class="btn btn-outline btn-lg">Nuestra Historia</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span><span class="plus">%</span>
+                    <span class="stat-label">Artesanal & Fresco</span>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="100">0</span><span class="stat-number">%</span>
-                        <span class="stat-label">Artesanal y Selecto</span>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="24">0</span><span class="plus">+</span>
+                    <span class="stat-label">Recetas Gourmet</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5">0</span><span class="plus">★</span>
+                    <span class="stat-label">Experiencia Única</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Nosotros -->
+    <section id="about" class="section-padding about-section">
+        <div class="container grid-2">
+            <div class="about-images">
+                <div class="img-wrapper glass-card img-main">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1000&auto=format&fit=crop" alt="Café artesanal recién preparado">
+                </div>
+                <div class="img-wrapper glass-card img-secondary">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Repostería fina gourmet">
+                </div>
+                <div class="experience-badge">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Calidad Suprema</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="section-subtitle">BIENVENIDO A NUESTRA CASA</span>
+                <h2 class="section-title">El Arte de Crear Momentos Inolvidables</h2>
+                <p class="lead-text">En Coffee Shalom unimos la maestría del café de especialidad con la delicadeza de la repostería artesanal gourmet y la chocolatería fina.</p>
+                <p class="body-text">Nacimos con el propósito de ofrecer un refugio de tranquilidad y deleite gastronómico. Cada uno de nuestros postres, panecillos y bombones es preparado minuciosamente a mano con ingredientes de primera calidad, infundiendo amor y bendición en cada receta.</p>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fa-solid fa-seedling"></i>
+                        <h4>Grano Seleccionado</h4>
+                        <p>Café de origen tostado a la perfección.</p>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="15">0</span><span class="stat-number">+</span>
-                        <span class="stat-label">Variedades Gourmet</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="24">0</span><span class="stat-number">/7</span>
-                        <span class="stat-label">Pasión por el Café</span>
+                    <div class="value-card">
+                        <i class="fa-solid fa-heart"></i>
+                        <h4>Hecho a Mano</h4>
+                        <p>Repostería y chocolates 100% artesanales.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. NOSOTROS -->
-    <section class="section-padding bg-dark" id="nosotros">
+    <!-- 4. Nuestro Café -->
+    <section id="coffee" class="section-padding coffee-section bg-dark">
         <div class="container">
-            <div class="grid-2 align-items-center">
-                <div class="about-images">
-                    <div class="img-wrapper glass-card">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop" alt="Café Coffee Shalom experiencia">
+            <div class="section-header text-center">
+                <span class="section-subtitle">SELECCIÓN EXCLUSIVA</span>
+                <h2 class="section-title">Nuestra Pasión por el Café</h2>
+                <p class="section-desc">Extraído con precisión para resaltar notas únicas de sabor y aroma.</p>
+            </div>
+
+            <div class="grid-3 card-container">
+                <!-- Card 1 -->
+                <div class="card glass-card hover-3d">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=800&auto=format&fit=crop" alt="Espresso Italiano">
+                        <span class="card-badge">$45</span>
                     </div>
-                    <div class="img-wrapper img-secondary glass-card">
-                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Taza de Café Coffee Shalom">
+                    <div class="card-body">
+                        <h3>Espresso Shalom</h3>
+                        <p>Extracción intensa de cuerpo denso con crema dorada y notas a avellana y cacao.</p>
+                        <div class="card-footer">
+                            <span class="intensity"><i class="fa-solid fa-fire"></i> Intensidad: Alta</span>
+                            <a href="#contact" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="about-text">
-                    <span class="section-subtitle">NUESTRA ESENCIA</span>
-                    <h2 class="section-title">Tradición, Calidez y Calidad Premium</h2>
-                    <p class="section-desc" style="margin: 0 0 25px 0;">Creamos un sitio web moderno, elegante y completamente responsivo que transmite una experiencia cálida, acogedora y de categoría internacional. Cada grano de Coffee Shalom cuenta una historia de dedicación.</p>
-                    
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <i class="fa-solid fa-seedling"></i>
-                            <h3>Granos Selectos</h3>
-                            <p>Selección rigurosa de origen para el mejor café en grano y molido.</p>
+
+                <!-- Card 2 -->
+                <div class="card glass-card hover-3d">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=800&auto=format&fit=crop" alt="Cappuccino Cremoso">
+                        <span class="card-badge">$65</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Cappuccino Velvet</h3>
+                        <p>Mezcla armoniosa de espresso, leche emulsionada sedosa y un toque de canela gourmet.</p>
+                        <div class="card-footer">
+                            <span class="intensity"><i class="fa-solid fa-fire"></i> Intensidad: Media</span>
+                            <a href="#contact" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
-                        <div class="value-card">
-                            <i class="fa-solid fa-cookie-bite"></i>
-                            <h3>Repostería Gourmet</h3>
-                            <p>Pasteles, chocolates artesanales y pan recién horneado cada día.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card glass-card hover-3d">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=800&auto=format&fit=crop" alt="Latte Frío de Especialidad">
+                        <span class="card-badge">$75</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Iced Caramel Latte</h3>
+                        <p>Café frío infusionado con caramelo artesanal, leche fría y cubos de hielo de café purificado.</p>
+                        <div class="card-footer">
+                            <span class="intensity"><i class="fa-solid fa-snowflake"></i> Frío & Dulce</span>
+                            <a href="#contact" class="btn-link">Pedir <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -121,235 +216,330 @@
         </div>
     </section>
 
-    <!-- 7. MENÚ / CATÁLOGO CON FILTROS -->
-    <section class="section-padding" id="menu">
-        <div class="container text-center">
-            <span class="section-subtitle">EXPLORA NUESTRA OFERTA</span>
-            <h2 class="section-title">Nuestro Catálogo Exclusivo</h2>
-            <p class="section-desc">Disfruta de la más alta selección de productos Coffee Shalom preparados para ti.</p>
+    <!-- 5. Repostería Gourmet -->
+    <section id="pastry" class="section-padding pastry-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">DELICIAS RECIÉN HORNEADAS</span>
+                <h2 class="section-title">Repostería de Autor</h2>
+                <p class="section-desc">El maridaje perfecto para elevar la experiencia de tu café.</p>
+            </div>
 
-            <div class="filter-buttons">
+            <div class="grid-3 card-container">
+                <div class="card glass-card hover-3d">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Pastel de Zanahoria">
+                        <span class="card-badge">$85</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Pastel de Zanahoria Gourmet</h3>
+                        <p>Bizcocho esponjoso con nueces especiadas y cobertura suavecísima de queso crema.</p>
+                    </div>
+                </div>
+
+                <div class="card glass-card hover-3d">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800&auto=format&fit=crop" alt="Croissants de Mantequilla">
+                        <span class="card-badge">$50</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Croissant Francés Artesanal</h3>
+                        <p>Hojaldrado de mantequilla de origen europeo, crujiente por fuera y suave por dentro.</p>
+                    </div>
+                </div>
+
+                <div class="card glass-card hover-3d">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=800&auto=format&fit=crop" alt="Tarta de Frutos Rojos">
+                        <span class="card-badge">$80</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Tarta de Frutos del Bosque</h3>
+                        <p>Base crocante sablé, crema pastelera de vainilla pura de Papantla y frutos frescos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Chocolates Artesanales -->
+    <section id="chocolates" class="section-padding chocolates-section bg-dark">
+        <div class="container grid-2 align-center">
+            <div class="chocolates-content">
+                <span class="section-subtitle">PUREZA & ELEGANCIA</span>
+                <h2 class="section-title">Chocolatería Fina & Bombones</h2>
+                <p class="lead-text">Creamos piezas de arte comestibles utilizando cacao seleccionado de alta pureza.</p>
+                <p class="body-text">Nuestras colecciones de chocolates artesanales integran rellenos cremosos como maracuyá, café espresso, praliné de avellanas y sal marina con caramelo.</p>
+                
+                <ul class="chocolate-list" style="list-style: none; margin-bottom: 30px;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check-double text-gold"></i> Cacao 70% de origen ético y sustentable.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check-double text-gold"></i> Rellenos con ingredientes 100% naturales.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check-double text-gold"></i> Cajas de regalo exclusivas "Gift Boxes Shalom".</li>
+                </ul>
+
+                <a href="https://wa.me/?text=Deseo%20cotizar%20cajas%20de%20chocolates%20gourmet" target="_blank" class="btn btn-gold glow-effect"><i class="fa-solid fa-gift"></i> Cotizar Caja de Regalo</a>
+            </div>
+
+            <div class="chocolates-gallery">
+                <div class="grid-2-sm gap-md" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div class="img-card glass-card hover-3d" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=800&auto=format&fit=crop" alt="Bombones" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="img-card glass-card hover-3d" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=800&auto=format&fit=crop" alt="Tableta" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Menú Destacado con Filtros Dinámicos -->
+    <section id="menu" class="section-padding menu-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">NUESTRA CARTA</span>
+                <h2 class="section-title">Menú Completo</h2>
+                <p class="section-desc">Selecciona tu categoría favorita y descubre nuestras especialidades.</p>
+            </div>
+
+            <!-- Filtros (Sin snacks ni desayunos) -->
+            <div class="filter-buttons text-center">
                 <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="cafe">Café y Granos</button>
-                <button class="filter-btn" data-filter="reposteria">Repostería y Pan</button>
-                <button class="filter-btn" data-filter="chocolates">Chocolates y Postres</button>
+                <button class="filter-btn" data-filter="coffee">Café</button>
+                <button class="filter-btn" data-filter="bakery">Repostería</button>
+                <button class="filter-btn" data-filter="chocolate">Chocolates</button>
             </div>
 
-            <div class="grid-3">
-                <!-- Producto 1 -->
-                <div class="glass-card card hover-3d menu-item-card" data-category="cafe" style="display: flex; flex-direction: column; text-align: left; padding: 0;">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=600&auto=format&fit=crop" alt="Granos de café">
-                        <span class="card-badge">Café Shalom</span>
-                    </div>
-                    <div class="card-body" style="width: 100%;">
+            <!-- Items del Menú -->
+            <div class="grid-3 menu-items-container">
+                <!-- Item 1 -->
+                <div class="menu-item-card glass-card" data-category="coffee">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Mocha">
+                    <div class="menu-item-info">
                         <div class="item-header">
-                            <h3>Granos de Café</h3>
-                            <span class="price">$18.99</span>
+                            <h4>Mocha Blanco & Cacao</h4>
+                            <span class="price">$70</span>
                         </div>
-                        <p>Granos de café selectos Coffee Shalom, tostados a la perfección para preservar su aroma único.</p>
+                        <p>Espresso, chocolate blanco fundido y leche al vapor.</p>
                     </div>
                 </div>
 
-                <!-- Producto 2 -->
-                <div class="glass-card card hover-3d menu-item-card" data-category="cafe" style="display: flex; flex-direction: column; text-align: left; padding: 0;">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Café molido">
-                        <span class="card-badge">Tradición</span>
-                    </div>
-                    <div class="card-body" style="width: 100%;">
+                <!-- Item 2 -->
+                <div class="menu-item-card glass-card" data-category="bakery">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Pan Artesanal">
+                    <div class="menu-item-info">
                         <div class="item-header">
-                            <h3>Café Molido</h3>
-                            <span class="price">$15.50</span>
+                            <h4>Pan Masa Madre & Semillas</h4>
+                            <span class="price">$95</span>
                         </div>
-                        <p>Café molido fresco con cuerpo equilibrado y notas intensas para consentir tus mañanas.</p>
+                        <p>Hazaña artesanal horneada diariamente con fermentación lenta.</p>
                     </div>
                 </div>
 
-                <!-- Producto 3 -->
-                <div class="glass-card card hover-3d menu-item-card" data-category="cafe" style="display: flex; flex-direction: column; text-align: left; padding: 0;">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?q=80&w=600&auto=format&fit=crop" alt="Empaques del Café">
-                        <span class="card-badge">Exclusivo</span>
-                    </div>
-                    <div class="card-body" style="width: 100%;">
+                <!-- Item 3 -->
+                <div class="menu-item-card glass-card" data-category="chocolate">
+                    <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?q=80&w=600&auto=format&fit=crop" alt="Trufas">
+                    <div class="menu-item-info">
                         <div class="item-header">
-                            <h3>Empaques del Café Coffee Shalom</h3>
-                            <span class="price">$22.00</span>
+                            <h4>Trufas de Ron & Avellana (6 pcs)</h4>
+                            <span class="price">$110</span>
                         </div>
-                        <p>Hermosos empaques herméticos de colección, ideales para regalo o conservación óptima.</p>
+                        <p>Trufas espolvoreadas con cacao holandés de alta pureza.</p>
                     </div>
                 </div>
 
-                <!-- Producto 4 -->
-                <div class="glass-card card hover-3d menu-item-card" data-category="chocolates" style="display: flex; flex-direction: column; text-align: left; padding: 0;">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=600&auto=format&fit=crop" alt="Chocolates artesanales">
-                        <span class="card-badge">Artesanal</span>
-                    </div>
-                    <div class="card-body" style="width: 100%;">
+                <!-- Item 5 -->
+                <div class="menu-item-card glass-card" data-category="coffee">
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600&auto=format&fit=crop" alt="Flat White">
+                    <div class="menu-item-info">
                         <div class="item-header">
-                            <h3>Chocolates Artesanales</h3>
-                            <span class="price">$12.00</span>
+                            <h4>Flat White Especial</h4>
+                            <span class="price">$60</span>
                         </div>
-                        <p>Finísimos chocolates hechos a mano para maridar perfectamente con el café de la casa.</p>
+                        <p>Doble shot de espresso ristretto con una fina capa de leche micro-emulsionada.</p>
                     </div>
                 </div>
 
-                <!-- Producto 5 -->
-                <div class="glass-card card hover-3d menu-item-card" data-category="reposteria" style="display: flex; flex-direction: column; text-align: left; padding: 0;">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="Pasteles">
-                        <span class="card-badge">Gourmet</span>
-                    </div>
-                    <div class="card-body" style="width: 100%;">
+                <!-- Item 6 -->
+                <div class="menu-item-card glass-card" data-category="bakery">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop" alt="Galletas Gourmet">
+                    <div class="menu-item-info">
                         <div class="item-header">
-                            <h3>Pasteles</h3>
-                            <span class="price">$25.00</span>
+                            <h4>Galletas Choco-Chips XXL</h4>
+                            <span class="price">$40</span>
                         </div>
-                        <p>Exquisitos pasteles horneados con recetas de autor, textura suave y sabor inigualable.</p>
-                    </div>
-                </div>
-
-                <!-- Producto 6 -->
-                <div class="glass-card card hover-3d menu-item-card" data-category="reposteria" style="display: flex; flex-direction: column; text-align: left; padding: 0;">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?q=80&w=600&auto=format&fit=crop" alt="Repostería gourmet">
-                        <span class="card-badge">Especial</span>
-                    </div>
-                    <div class="card-body" style="width: 100%;">
-                        <div class="item-header">
-                            <h3>Repostería Gourmet</h3>
-                            <span class="price">$9.50</span>
-                        </div>
-                        <p>Variedad de delicias horneadas con ingredientes finos para acompañar tu bebida favorita.</p>
-                    </div>
-                </div>
-
-                <!-- Producto 7 -->
-                <div class="glass-card card hover-3d menu-item-card" data-category="reposteria" style="display: flex; flex-direction: column; text-align: left; padding: 0;">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop" alt="Pan artesanal">
-                        <span class="card-badge">Del Horno</span>
-                    </div>
-                    <div class="card-body" style="width: 100%;">
-                        <div class="item-header">
-                            <h3>Pan Artesanal</h3>
-                            <span class="price">$6.00</span>
-                        </div>
-                        <p>Pan recién horneado cada mañana, con corteza crujiente y miga tierna inigualable.</p>
-                    </div>
-                </div>
-
-                <!-- Producto 8 -->
-                <div class="glass-card card hover-3d menu-item-card" data-category="chocolates" style="display: flex; flex-direction: column; text-align: left; padding: 0;">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600&auto=format&fit=crop" alt="Postres">
-                        <span class="card-badge">Especialidad</span>
-                    </div>
-                    <div class="card-body" style="width: 100%;">
-                        <div class="item-header">
-                            <h3>Postres</h3>
-                            <span class="price">$10.00</span>
-                        </div>
-                        <p>Creaciones dulces y delicadas diseñadas para cerrar tu experiencia de forma memorable.</p>
+                        <p>Centro suave con chispas de chocolate oscuro 60% y toque de sal marina.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERÍA LIGHTBOX -->
-    <section class="section-padding bg-dark" id="galeria">
+    <!-- 8. Promociones -->
+    <section class="promo-banner section-padding">
         <div class="container text-center">
-            <span class="section-subtitle">MOMENTOS SHALOM</span>
-            <h2 class="section-title">Galería de la Experiencia</h2>
-            <p class="section-desc">Un vistazo visual a nuestra pasión convertida en café y postres.</p>
+            <div class="promo-box glass-card glow-border" style="padding: 40px;">
+                <span class="promo-tag" style="color:var(--gold); font-size:0.85rem; letter-spacing:2px; font-weight:600;">OFERTA DE LA SEMANA</span>
+                <h2 style="font-family:'Playfair Display',serif; font-size:2rem; margin:15px 0;">Combo Shalom Morning ☕🥐</h2>
+                <p style="color:var(--text-muted); margin-bottom:25px;">1 Café Cappuccino / Espresso + 1 Croissant de Mantequilla o Rebanada de Pastel por solo <strong style="color:var(--text-main);">$99 MXN</strong>.</p>
+                <a href="https://wa.me/?text=Quiero%20aprovechar%20la%20promocion%20Shalom%20Morning" target="_blank" class="btn btn-gold btn-lg"><i class="fa-brands fa-whatsapp"></i> Ordenar Combo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Galería con Lightbox -->
+    <section class="section-padding gallery-section bg-dark">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">NUESTRO UNIVERSO VISUAL</span>
+                <h2 class="section-title">Galería de Experiencias</h2>
+            </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item glass-card">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=600&auto=format&fit=crop" alt="Galería 1">
-                    <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="gallery-item glass-card">
-                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=600&auto=format&fit=crop" alt="Galería 2">
-                    <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="gallery-item glass-card">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600&auto=format&fit=crop" alt="Galería 3">
-                    <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="gallery-item glass-card">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop" alt="Galería 4">
-                    <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                <div class="gallery-item glass-card"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop" alt="Cafetería"><div class="overlay"><i class="fa-solid fa-expand"></i></div></div>
+                <div class="gallery-item glass-card"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop" alt="Café de especialidad"><div class="overlay"><i class="fa-solid fa-expand"></i></div></div>
+                <div class="gallery-item glass-card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Taza de café"><div class="overlay"><i class="fa-solid fa-expand"></i></div></div>
+                <div class="gallery-item glass-card"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" alt="Barista"><div class="overlay"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Ampliación">
+    </div>
+
+    <!-- 10. Opiniones / Carrusel -->
+    <section class="section-padding reviews-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">TESTIMONIOS</span>
+                <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            </div>
+
+            <div class="testimonials-carousel" style="max-width: 600px; margin: 0 auto;">
+                <div class="testimonial-card glass-card text-center" style="padding: 35px;">
+                    <div class="stars" style="color: var(--gold); margin-bottom: 15px;">★★★★★</div>
+                    <p class="review-text" style="color: var(--text-muted); font-style: italic; margin-bottom: 20px;">"El mejor café de la ciudad sin duda alguna. La atención es sumamente cálida y el pastel de zanahoria es sencillamente celestial."</p>
+                    <h4 class="client-name" style="font-family:'Playfair Display',serif; font-size: 1.1rem;">María Fernanda López</h4>
+                    <span class="client-role" style="font-size: 0.8rem; color: var(--gold);">Cliente Frecuente</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modal Lightbox -->
-    <div class="lightbox-modal" id="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" alt="Ampliada">
-    </div>
+    <!-- 11. Ubicación e Información -->
+    <section id="location" class="section-padding location-section bg-dark">
+        <div class="container grid-2">
+            <div class="location-info">
+                <span class="section-subtitle">VISÍTANOS</span>
+                <h2 class="section-title">Tu Nuevo Lugar Favorito</h2>
+                <p class="body-text">Ven a disfrutar de nuestro espacio diseñado para reconfortarte, trabajar tranquilamente o compartir con personas especiales.</p>
+                
+                <div class="info-list" style="margin-top: 30px;">
+                    <div class="info-item" style="display: flex; gap: 15px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-location-dot text-gold" style="font-size: 1.2rem; margin-top: 3px;"></i>
+                        <div>
+                            <h4 style="font-family:'Playfair Display',serif; margin-bottom: 3px;">Dirección</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Av. Principal #123, Centro, Tu Ciudad</p>
+                        </div>
+                    </div>
+                    <div class="info-item" style="display: flex; gap: 15px;">
+                        <i class="fa-solid fa-clock text-gold" style="font-size: 1.2rem; margin-top: 3px;"></i>
+                        <div>
+                            <h4 style="font-family:'Playfair Display',serif; margin-bottom: 3px;">Horario de Atención</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Lunes a Sábado: 8:00 AM – 9:00 PM<br>Domingo: 9:00 AM – 8:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- FORMULARIO Y CONTACTO -->
-    <section class="section-padding contact-section" id="contacto">
-        <div class="container text-center">
-            <span class="section-subtitle">ESTEMOS EN CONTACTO</span>
-            <h2 class="section-title">Realiza tu Pedido o Consulta</h2>
-            <p class="section-desc">Envíanos un mensaje directo y te atenderemos al instante vía WhatsApp.</p>
+            <div class="map-container glass-card" style="padding: 10px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6617304128526!2d-99.16869368453472!3d19.42702498688755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5bd15a7%3A0x280e22a84a36f6d0!2sEl%20%C3%81ngel%20de%20la%20Independencia!5e0!3m2!1ses!2smx!4v1689000000000!5m2!1ses!2smx" width="100%" height="350" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
 
-            <div class="form-wrapper max-width-600 center-margin">
+    <!-- 12. Contacto -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">ESTAMOS PARA SERVIRTE</span>
+                <h2 class="section-title">Haz tu Pedido o Cotización</h2>
+            </div>
+
+            <div class="form-wrapper glass-card max-width-600 center-margin">
                 <form id="contact-form">
                     <div class="form-group">
                         <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" placeholder="Tu nombre" required>
+                        <input type="text" id="name" required placeholder="Tu nombre">
                     </div>
                     <div class="form-group">
                         <label for="email">Correo Electrónico</label>
-                        <input type="email5" id="email" placeholder="correo@ejemplo.com" required>
+                        <input type="email" id="email" required placeholder="tu@correo.com">
                     </div>
                     <div class="form-group">
                         <label for="phone">Teléfono / WhatsApp</label>
-                        <input type="tel" id="phone" placeholder="+34 600 000 000" required>
+                        <input type="tel" id="phone" required placeholder="Tu número de teléfono">
                     </div>
                     <div class="form-group">
-                        <label for="message">Mensaje / Pedido de Productos</label>
-                        <textarea id="message" rows="4" placeholder="¿Qué productos de Coffee Shalom deseas ordenar?" required></textarea>
+                        <label for="message">Mensaje o Pedido Especial</label>
+                        <textarea id="message" rows="4" required placeholder="Escribe aquí tu pedido de pasteles, chocolates o reserva..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-gold" style="width: 100%;">Enviar Mensaje por WhatsApp</button>
-                    <div class="form-status" id="form-status"></div>
+                    <button type="submit" class="btn btn-gold btn-block glow-effect">Enviar Mensaje</button>
+                    <div id="form-status" class="form-status" style="margin-top: 15px; text-align: center; font-size: 0.9rem;"></div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- WhatsApp Flotante -->
-    <a href="https://wa.me/" class="whatsapp-float" target="_blank" aria-label="Chat de WhatsApp">
+    <!-- 13. WhatsApp Flotante -->
+    <a href="https://wa.me/?text=Hola%20Coffee%20Shalom,%20me%20gustaria%20mas%20informacion" class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
+    <!-- 14. Footer -->
     <footer class="footer bg-dark">
-        <div class="container text-center">
-            <a href="#" class="brand-logo" style="display: inline-block; margin-bottom: 20px;">
-                <span class="logo-text" style="font-size: 2rem;">Coffee Shalom</span>
-                <span class="logo-sub">PREMIUM EXPERIENCE</span>
-            </a>
-            <p class="section-desc" style="margin: 0 auto 20px;">El auténtico sabor del café y la repostería internacional directo a tu hogar o negocio.</p>
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <div class="container grid-4">
+            <div class="footer-brand">
+                <h3>COFFEE SHALOM</h3>
+                <p style="color:var(--gold); font-size:0.9rem; margin-bottom: 10px;">Café • Amor • Bendición</p>
+                <p class="small-desc" style="color:var(--text-muted); font-size:0.85rem;">Experiencias gastronómicas artesanales para reconfortar tu día.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Coffee Shalom. Todos los derechos reservados. Creado con elegancia y calidad internacional.</p>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#coffee">Café</a></li>
+                    <li><a href="#pastry">Repostería</a></li>
+                </ul>
             </div>
+            <div class="footer-links">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="#chocolates">Chocolates</a></li>
+                    <li><a href="#menu">Menú Completo</a></li>
+                    <li><a href="#location">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Coffee Shalom. Todos los derechos reservados. | Diseñado con excelencia por <strong>Astro Code Studio</strong>.</p>
         </div>
     </footer>
 
-    <!-- Script de Interactividad -->
+    <!-- Scripts JS -->
     <script src="script.js"></script>
 </body>
 </html>
