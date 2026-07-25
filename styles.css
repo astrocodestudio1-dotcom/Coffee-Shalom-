@@ -24,11 +24,12 @@ body {
 h1, h2, h3, h4 { font-family: var(--font-heading); }
 a { text-decoration: none; color: inherit; }
 
-/* LOGO SVG & ANIMACIONES DE VAPOR */
-.shalom-logo-svg { display: block; height: auto; }
-.loader-svg { width: 220px; height: 220px; margin: 0 auto; }
-.nav-logo { width: 140px; height: 60px; }
+/* TIPOGRAFÍA DE MARCA EXACTA */
+.nav-brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-title { font-family: var(--font-heading); font-weight: 700; font-size: 1.4rem; color: var(--color-gold); letter-spacing: 1px; }
+.brand-subtitle { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.75rem; color: var(--color-cream); letter-spacing: 5px; text-align: center; }
 
+.loader-svg { width: 220px; height: 220px; margin: 0 auto; display: block; }
 .steam { animation: steamRise 2s infinite ease-in-out; }
 .steam-2 { animation-delay: 0.5s; }
 
