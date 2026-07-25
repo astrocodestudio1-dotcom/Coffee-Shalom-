@@ -76,13 +76,6 @@ body {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* ESTADO OCULTO DEL LOADER (Solución definitiva integrada) */
-.loader-wrapper.oculto {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
 .loader-content {
     text-align: center;
 }
@@ -118,14 +111,39 @@ body {
     opacity: 0;
 }
 
-.steam:nth-child(1) { width: 6px; height: 20px; left: 8px; animation-delay: 0s; }
-.steam:nth-child(2) { width: 8px; height: 25px; left: 18px; animation-delay: 0.6s; }
-.steam:nth-child(3) { width: 5px; height: 18px; left: 28px; animation-delay: 1.2s; }
+.steam:nth-child(1) {
+    width: 6px;
+    height: 20px;
+    left: 8px;
+    animation-delay: 0s;
+}
+
+.steam:nth-child(2) {
+    width: 8px;
+    height: 25px;
+    left: 18px;
+    animation-delay: 0.6s;
+}
+
+.steam:nth-child(3) {
+    width: 5px;
+    height: 18px;
+    left: 28px;
+    animation-delay: 1.2s;
+}
 
 @keyframes riseSteam {
-    0% { transform: translateY(15px) scaleX(0.5); opacity: 0; }
-    50% { opacity: 0.7; }
-    100% { transform: translateY(-25px) scaleX(1.5); opacity: 0; }
+    0% {
+        transform: translateY(15px) scaleX(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-25px) scaleX(1.5);
+        opacity: 0;
+    }
 }
 
 .tagline-loader {
