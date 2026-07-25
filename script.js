@@ -1,286 +1,390 @@
-document.addEventListener('DOMContentLoaded', () => {
+/* ==========================================
+   COFFEE SHALOM® - SCRIPT PRINCIPAL
+   ========================================== */
 
-    /* ==========================================
-       1. LOADER INICIAL CON ANIMACIÓN DE TAZA
-       ================================---------- */
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. LOADER ANIMADO
     const loader = document.getElementById('loader');
     window.addEventListener('load', () => {
         setTimeout(() => {
             loader.classList.add('fade-out');
         }, 600);
     });
+    // Fallback por si el evento load tarda
+    setTimeout(() => {
+        if (!loader.classList.contains('fade-out')) {
+            loader.classList.add('fade-out');
+        }
+    }, 2000);
 
-    /* ==========================================
-       2. MENÚ MÓVIL Y NAVBAR STICKY
-       ================================---------- */
-    const menuToggle = document.getElementById('menuToggle');
+    // 2. MENÚ MÓVIL (HAMBURGUESA)
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
     const navMenu = document.getElementById('navMenu');
 
-    menuToggle.addEventListener('click', () => {
+    hamburgerBtn.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        hamburgerBtn.classList.toggle('open');
     });
 
-    navMenu.querySelectorAll('a').forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
-            menuToggle.querySelector('i').classList.add('fa-bars');
-            menuToggle.querySelector('i').classList.remove('fa-times');
+            hamburgerBtn.classList.remove('open');
         });
     });
 
-    /* ==========================================
-       3. FILTRADO DE CATÁLOGO
-       ================================---------- */
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const productCards = document.querySelectorAll('.product-card');
+    // 3. BASE DE DATOS DE PRODUCTOS
+    const productsData = [
+        {
+            id: 'cafe-reserva-500',
+            name: 'Café Coffee Shalom - Reserva Exclusiva 500g',
+            category: 'cafe',
+            price: 349.00,
+            desc: 'Notas de cata excepcionales con sutiles matices de chocolate amargo y frutos secos.',
+            img: 'assets/img/product-cafe-shalom.jpg',
+            tag: 'Exclusivo'
+        },
+        {
+            id: 'cafe-tradicional-1kg',
+            name: 'Café Coffee Shalom - Grano Tradicional 1Kg',
+            category: 'cafe',
+            price: 580.00,
+            desc: 'Cuerpo completo e intenso tueste medio para los verdaderos amantes del café de altura.',
+            img: 'assets/img/product-cafe-1kg.jpg',
+            tag: 'Popular'
+        },
+        {
+            id: 'chocolate-oscuro-70',
+            name: 'Barra de Chocolate Artesanal 70% Cacao',
+            category: 'chocolates',
+            price: 120.00,
+            desc: 'Fino cacao mexicano con notas florales y textura sedosa en boca.',
+            img: 'assets/img/product-choc-dark.jpg',
+            tag: 'Artesanal'
+        },
+        {
+            id: 'chocolate-relleno-cafe',
+            name: 'Bombones Rellenos de Crema de Café Shalom',
+            category: 'chocolates',
+            price: 195.00,
+            desc: 'Caja con 9 piezas de chocolates finos con corazón de espresso.',
+            img: 'assets/img/product-choc-coffee.jpg',
+            tag: 'Gourmet'
+        },
+        {
+            id: 'pastel-tres-chocolates',
+            name: 'Pastel Fino Tres Chocolates (Rebanada/Entero)',
+            category: 'reposteria',
+            price: 450.00,
+            desc: 'Bizcocho húmedo de chocolate con mousses de cacao blanco, con leche y amargo.',
+            img: 'assets/img/product-cake-3choc.jpg',
+            tag: 'Favorito'
+        },
+        {
+            id: 'tarta-frutos-rojos',
+            name: 'Tarta Artesanal de Frutos Rojos y Crema',
+            category: 'reposteria',
+            price: 380.00,
+            desc: 'Base crujiente de mantequilla, crema ligera de vainilla y selección de frutos frescos.',
+            img: 'assets/img/product-tart-berries.jpg',
+            tag: 'Fresco'
+        },
+        {
+            id: 'pan-masa-madre',
+            name: 'Pan Artesanal de Masa Madre',
+            category: 'pan',
+            price: 85.00,
+            desc: 'Fermentación lenta de 24 horas, corteza crujiente y miga suave y alveolada.',
+            img: 'assets/img/product-bread-sourdough.jpg',
+            tag: 'Diario'
+        },
+        {
+            id: 'concha-gourmet',
+            name: 'Concha Tradicional Gourmet (Paquete con 4)',
+            category: 'pan',
+            price: 70.00,
+            desc: 'Cobertura crujiente de vainilla y cacao puro de alta calidad.',
+            img: 'assets/img/product-bread-concha.jpg',
+            tag: 'Horneado'
+        }
+    ];
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    // Renderizar Favoritos / Destacados
+    const featuredGrid = document.getElementById('featuredProductsGrid');
+    const fullCatalogGrid = document.getElementById('fullCatalogGrid');
 
-            const filter = btn.getAttribute('data-filter');
-
-            productCards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+    function renderProducts(container, items) {
+        if (!container) return;
+        container.innerHTML = '';
+        items.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="product-card-img">
+                    <img src="${product.img}" alt="${product.name}" loading="lazy">
+                    <span class="product-card-tag">${product.tag}</span>
+                </div>
+                <div class="product-card-body">
+                    <h4>${product.name}</h4>
+                    <p class="product-card-desc">${product.desc}</p>
+                    <div class="product-card-footer">
+                        <span class="price">$${product.price.toFixed(2)} <small>MXN</small></span>
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-id="${product.id}" 
+                                data-name="${product.name}" 
+                                data-price="${product.price}" 
+                                data-img="${product.img}">
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
         });
-    });
-
-    /* ==========================================
-       4. PREGUNTAS FRECUENTES (ACCORDION)
-       ================================---------- */
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-        const questionBtn = item.querySelector('.faq-question');
-        questionBtn.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-            faqItems.forEach(i => i.classList.remove('active'));
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        });
-    });
-
-    /* ==========================================
-       5. CARRITO DE COMPRAS CON LOCALSTORAGE
-       ================================---------- */
-    let cart = JSON.parse(localStorage.getItem('coffee_shalom_cart')) || [];
-
-    const cartBtn = document.getElementById('cartBtn');
-    const cartModal = document.getElementById('cartModal');
-    const closeCart = document.getElementById('closeCart');
-    const cartItemsContainer = document.getElementById('cartItemsContainer');
-    const cartCount = document.getElementById('cartCount');
-    const cartFooter = document.getElementById('cartFooter');
-    const cartSubtotal = document.getElementById('cartSubtotal');
-    const cartTotal = document.getElementById('cartTotal');
-    const clearCartBtn = document.getElementById('clearCartBtn');
-
-    cartBtn.addEventListener('click', () => cartModal.classList.add('active'));
-    closeCart.addEventListener('click', () => cartModal.classList.remove('active'));
-    cartModal.addEventListener('click', (e) => {
-        if (e.target === cartModal) cartModal.classList.remove('active');
-    });
-
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const card = e.target.closest('.product-card');
-            const id = card.getAttribute('data-id');
-            const name = card.getAttribute('data-name');
-            const price = parseFloat(card.getAttribute('data-price'));
-
-            const existingItem = cart.find(item => item.id === id);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ id, name, price, quantity: 1 });
-            }
-
-            updateCart();
-            cartModal.classList.add('active');
-        });
-    });
-
-    function updateCart() {
-        localStorage.setItem('coffee_shalom_cart', JSON.stringify(cart));
-        renderCartItems();
     }
 
-    function renderCartItems() {
+    // Inicializar grids
+    renderProducts(featuredGrid, productsData.slice(0, 4));
+    renderProducts(fullCatalogGrid, productsData);
+
+    // Filtros de Catálogo
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            const filter = e.target.getAttribute('data-filter');
+            
+            if (filter === 'all') {
+                renderProducts(fullCatalogGrid, productsData);
+            } else {
+                const filtered = productsData.filter(p => p.category === filter);
+                renderProducts(fullCatalogGrid, filtered);
+            }
+            attachCartEvents();
+        });
+    });
+
+    // 4. CARRITO DE COMPRAS LÓGICA (LOCALSTORAGE)
+    let cart = JSON.parse(localStorage.getItem('coffee_shalom_cart')) || [];
+
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartToggleBtn = document.getElementById('cartToggleBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartBadge = document.getElementById('cartBadge');
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const cartTax = document.getElementById('cartTax');
+    const cartTotal = document.getElementById('cartTotal');
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    const stripeCheckoutBtn = document.getElementById('stripeCheckoutBtn');
+
+    function toggleCart() {
+        cartDrawer.classList.toggle('open');
+        cartOverlay.classList.toggle('open');
+        renderCart();
+    }
+
+    cartToggleBtn.addEventListener('click', toggleCart);
+    closeCartBtn.addEventListener('click', toggleCart);
+    cartOverlay.addEventListener('click', toggleCart);
+
+    function addToCart(e) {
+        const btn = e.target.closest('.add-to-cart-btn');
+        if (!btn) return;
+
+        const id = btn.getAttribute('data-id');
+        const name = btn.getAttribute('data-name');
+        const price = parseFloat(btn.getAttribute('data-price'));
+        const img = btn.getAttribute('data-img');
+
+        const existingItem = cart.find(item => item.id === id);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ id, name, price, img, quantity: 1 });
+        }
+
+        saveCart();
+        renderCart();
+        
+        // Abrir carrito de forma automática para feedback visual
+        cartDrawer.classList.add('open');
+        cartOverlay.classList.add('open');
+    }
+
+    function attachCartEvents() {
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.removeEventListener('click', addToCart); // Evitar duplicados
+            button.addEventListener('click', addToCart);
+        });
+    }
+    attachCartEvents();
+
+    function updateCartQuantities(id, delta) {
+        const item = cart.find(i => i.id === id);
+        if (item) {
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+        }
+        saveCart();
+        renderCart();
+    }
+
+    function removeFromCart(id) {
+        cart = cart.filter(i => i.id !== id);
+        saveCart();
+        renderCart();
+    }
+
+    function saveCart() {
+        localStorage.setItem('coffee_shalom_cart', JSON.stringify(cart));
+    }
+
+    function renderCart() {
         cartItemsContainer.innerHTML = '';
+        let totalItems = 0;
+        let subtotalVal = 0;
 
         if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Tu carrito está vacío.</p>';
-            cartFooter.style.display = 'none';
-            cartCount.textContent = '0';
+            cartItemsContainer.innerHTML = '<p class="empty-cart-text">Tu carrito está actualmente vacío.</p>';
+            cartBadge.textContent = '0';
+            cartSubtotal.textContent = '$0.00 MXN';
+            cartTax.textContent = '$0.00 MXN';
+            cartTotal.textContent = '$0.00 MXN';
             return;
         }
 
-        cartFooter.style.display = 'block';
-        let totalItems = 0;
-        let subtotal = 0;
-
         cart.forEach(item => {
             totalItems += item.quantity;
-            subtotal += item.price * item.quantity;
+            subtotalVal += item.price * item.quantity;
 
-            const itemDiv = document.createElement('div');
-            itemDiv.classList.add('cart-item');
-            itemDiv.innerHTML = `
-                <div class="cart-item-info">
-                    <h4>${item.name}</h4>
+            const div = document.createElement('div');
+            div.className = 'cart-item';
+            div.innerHTML = `
+                <img src="${item.img}" alt="${item.name}">
+                <div class="cart-item-details">
+                    <h5>${item.name}</h5>
                     <span class="cart-item-price">$${item.price.toFixed(2)} MXN</span>
-                </div>
-                <div class="cart-item-controls">
-                    <button class="decrease-qty" data-id="${item.id}">-</button>
-                    <span>${item.quantity}</span>
-                    <button class="increase-qty" data-id="${item.id}">+</button>
-                    <button class="remove-item" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button>
+                    <div class="cart-item-controls">
+                        <button class="qty-btn decrease-qty" data-id="${item.id}">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="qty-btn increase-qty" data-id="${item.id}">+</button>
+                        <button class="remove-item-btn" data-id="${item.id}">Eliminar</button>
+                    </div>
                 </div>
             `;
-            cartItemsContainer.appendChild(itemDiv);
+            cartItemsContainer.appendChild(div);
         });
 
-        cartCount.textContent = totalItems;
-        cartSubtotal.textContent = `$${subtotal.toFixed(2)} MXN`;
-        cartTotal.textContent = `$${subtotal.toFixed(2)} MXN`;
+        cartBadge.textContent = totalItems;
+        const taxVal = subtotalVal * 0.16; // IVA 16% México
+        const grandTotal = subtotalVal; // Generalmente precios en México ya incluyen IVA
 
-        attachCartEventListeners();
-    }
+        cartSubtotal.textContent = `$${subtotalVal.toFixed(2)} MXN`;
+        cartTax.textContent = `$${taxVal.toFixed(2)} MXN`;
+        cartTotal.textContent = `$${grandTotal.toFixed(2)} MXN`;
 
-    function attachCartEventListeners() {
-        document.querySelectorAll('.increase-qty').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const id = e.target.getAttribute('data-id');
-                const item = cart.find(i => i.id === id);
-                if (item) item.quantity += 1;
-                updateCart();
-            });
+        // Eventos internos del carrito
+        document.querySelectorAll('.increase-qty').forEach(b => {
+            b.addEventListener('click', () => updateCartQuantities(b.getAttribute('data-id'), 1));
         });
-
-        document.querySelectorAll('.decrease-qty').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const id = e.target.getAttribute('data-id');
-                const item = cart.find(i => i.id === id);
-                if (item) {
-                    item.quantity -= 1;
-                    if (item.quantity <= 0) {
-                        cart = cart.filter(i => i.id !== id);
-                    }
-                }
-                updateCart();
-            });
+        document.querySelectorAll('.decrease-qty').forEach(b => {
+            b.addEventListener('click', () => updateCartQuantities(b.getAttribute('data-id'), -1));
         });
-
-        document.querySelectorAll('.remove-item').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const id = e.target.closest('button').getAttribute('data-id');
-                cart = cart.filter(i => i.id !== id);
-                updateCart();
-            });
+        document.querySelectorAll('.remove-item-btn').forEach(b => {
+            b.addEventListener('click', () => removeFromCart(b.getAttribute('data-id')));
         });
     }
 
     clearCartBtn.addEventListener('click', () => {
         cart = [];
-        updateCart();
+        saveCart();
+        renderCart();
     });
 
-    renderCartItems();
-
-    /* ==========================================
-       6. PREPARACIÓN E INTEGRACIÓN STRIPE
-       ================================---------- */
-    const stripeCheckoutBtn = document.getElementById('stripeCheckoutBtn');
-    
+    // Simulación de Checkout con Stripe
     stripeCheckoutBtn.addEventListener('click', () => {
         if (cart.length === 0) {
-            alert('Tu carrito está vacío.');
+            alert('Tu carrito está vacío. Agrega productos para proceder al pago.');
             return;
         }
-
-        const STRIPE_PUBLIC_KEY = 'pk_test_TU_CLAVE_PUBLICA_AQUI';
-
-        if (STRIPE_PUBLIC_KEY.includes('TU_CLAVE_PUBLICA')) {
-            alert('⚙️ El sistema de pagos con Stripe está correctamente estructurado y preparado.\n\nPara activarlo, ingresa tu Clave Pública en el archivo script.js.');
-            return;
-        }
+        
+        // Simulación de pasarela segura
+        stripeCheckoutBtn.textContent = 'Conectando con Stripe...';
+        setTimeout(() => {
+            alert('Redirigiendo a pasarela segura de pago Stripe para Coffee Shalom. ¡Gracias por tu compra!');
+            stripeCheckoutBtn.textContent = 'Pagar con Stripe';
+            cart = [];
+            saveCart();
+            renderCart();
+            toggleCart();
+        }, 1500);
     });
 
-    /* ==========================================
-       7. VALIDACIÓN DE FORMULARIO DE CONTACTO
-       ================================---------- */
+    // Cargar estado inicial del carrito
+    renderCart();
+
+    // 5. ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ)
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq-question');
+        questionBtn.addEventListener('click', () => {
+            const currentlyActive = document.querySelector('.faq-item.active');
+            if (currentlyActive && currentlyActive !== item) {
+                currentlyActive.classList.remove('active');
+            }
+            item.classList.toggle('active');
+        });
+    });
+
+    // 6. VALIDACIÓN DEL FORMULARIO DE CONTACTO
     const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
 
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let isValid = true;
+            const nombre = document.getElementById('nombre');
+            const correo = document.getElementById('correo');
+            const mensaje = document.getElementById('mensaje');
+            const successMsg = document.getElementById('formSuccess');
 
-        const nombre = document.getElementById('nombre');
-        const correo = document.getElementById('correo');
-        const telefono = document.getElementById('telefono');
-        const asunto = document.getElementById('asunto');
-        const mensaje = document.getElementById('mensaje');
+            // Validación Nombre
+            if (!nombre.value.trim()) {
+                nombre.closest('.form-group').classList.add('error');
+                isValid = false;
+            } else {
+                nombre.closest('.form-group').classList.remove('error');
+            }
 
-        document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
-        document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => el.classList.remove('error'));
+            // Validación Correo
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(correo.value.trim())) {
+                correo.closest('.form-group').classList.add('error');
+                isValid = false;
+            } else {
+                correo.closest('.form-group').classList.remove('error');
+            }
 
-        if (nombre.value.trim() === '') {
-            showError(nombre, 'errorNombre', 'El nombre es obligatorio.');
-            isValid = false;
-        }
+            // Validación Mensaje
+            if (!mensaje.value.trim()) {
+                mensaje.closest('.form-group').classList.add('error');
+                isValid = false;
+            } else {
+                mensaje.closest('.form-group').classList.remove('error');
+            }
 
-        if (correo.value.trim() === '') {
-            showError(correo, 'errorCorreo', 'El correo es obligatorio.');
-            isValid = false;
-        } else if (!isValidEmail(correo.value)) {
-            showError(correo, 'errorCorreo', 'Ingresa un correo electrónico válido.');
-            isValid = false;
-        }
-
-        if (telefono.value.trim() === '') {
-            showError(telefono, 'errorTelefono', 'El teléfono es obligatorio.');
-            isValid = false;
-        }
-
-        if (asunto.value.trim() === '') {
-            showError(asunto, 'errorAsunto', 'El asunto es obligatorio.');
-            isValid = false;
-        }
-
-        if (mensaje.value.trim() === '') {
-            showError(mensaje, 'errorMensaje', 'El mensaje no puede estar vacío.');
-            isValid = false;
-        }
-
-        if (isValid) {
-            formSuccess.textContent = '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo muy pronto a través de coffeshalom1@gmail.com.';
-            contactForm.reset();
-            setTimeout(() => {
-                formSuccess.textContent = '';
-            }, 6000);
-        }
-    });
-
-    function showError(inputElement, errorId, message) {
-        inputElement.classList.add('error');
-        document.getElementById(errorId).textContent = message;
+            if (isValid) {
+                successMsg.style.display = 'block';
+                contactForm.reset();
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 5000);
+            }
+        });
     }
-
-    function isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
-
 });
