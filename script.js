@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Loader Inteligente y Seguro (Se quita sí o sí)
+    // 1. Loader Inteligente y Seguro (Se quita sí o sí usando la clase CSS)
     const loader = document.getElementById('loader');
     const progress = document.querySelector('.progress');
     
@@ -25,12 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function ocultarLoader() {
         if (loader) {
-            loader.style.opacity = '0';
-            loader.style.visibility = 'hidden';
+            loader.classList.add('oculto');
             setTimeout(() => {
                 loader.style.display = 'none';
                 clearTimeout(safetyTimer);
-            }, 300);
+            }, 500);
         }
     }
 
