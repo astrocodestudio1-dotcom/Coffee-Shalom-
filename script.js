@@ -4,14 +4,27 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Ocultar Loader
-    setTimeout(() => {
-        const loader = document.getElementById('loader') || document.querySelector('.loader-wrapper');
-        if (loader) {
-            loader.style.opacity = '0';
-            loader.style.visibility = 'hidden';
+    // 1. Ocultar Loader de forma fluida
+    const loader = document.getElementById('loader') || document.querySelector('.loader-wrapper');
+    const progress = document.querySelector('.progress');
+    
+    let width = 0;
+    const interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.visibility = 'hidden';
+                    loader.style.display = 'none';
+                }, 500);
+            }
+        } else {
+            width += Math.floor(Math.random() * 15) + 5;
+            if (width > 100) width = 100;
+            if (progress) progress.style.width = width + '%';
         }
-    }, 2000);
+    }, 120);
 
     // 2. Navbar Scroll Effect
     const navbar = id('header') || document.querySelector('.navbar');
@@ -114,19 +127,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Formulario de Contacto
-    const contactForm = id('contact-form') || document.querySelector('.contact-form');
+    // 7. Formulario de Contacto Avanzado con Redirección a WhatsApp
+    const contactForm = id('contact-form') || document.querySelector('#contact-form');
     const formStatus = id('form-status') || document.querySelector('.form-status');
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            if (formStatus) {
-                formStatus.innerHTML = '<p style="color: #C9A227; margin-top: 15px;">¡Gracias! Tu mensaje ha sido enviado con éxito. Te contactaremos pronto.</p>';
-            } else {
-                alert('¡Gracias! Tu mensaje ha sido enviado con éxito.');
+            
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const messageInput = document.getElementById('message');
+
+            const name = nameInput ? nameInput.value.trim() : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+            const phone = phoneInput ? phoneInput.value.trim() : '';
+            const message = messageInput ? messageInput.value.trim() : '';
+
+            if (!name || !email || !phone || !message) {
+                if (formStatus) {
+                    formStatus.textContent = "Por favor, completa todos los campos requeridos.";
+                    formStatus.className = "form-status error";
+                }
+                return;
             }
-            contactForm.reset();
+
+            const submitBtn = contactForm.querySelector("button[type='submit']");
+            let originalBtnText = "";
+            if (submitBtn) {
+                originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+                submitBtn.disabled = true;
+            }
+
+            setTimeout(() => {
+                if (formStatus) {
+                    formStatus.textContent = "¡Mensaje enviado con éxito! Redirigiendo a WhatsApp...";
+                    formStatus.className = "form-status success";
+                }
+
+                const waText = encodeURIComponent(`Hola Coffee Shalom, mi nombre es ${name}. Correo: ${email}. Tel: ${phone}. Mensaje/Pedido: ${message}`);
+                
+                setTimeout(() => {
+                    window.open(`https://wa.me/?text=${waText}`, '_blank');
+                    contactForm.reset();
+                    if (submitBtn) {
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                    if (formStatus) {
+                        formStatus.textContent = "";
+                        formStatus.className = "form-status";
+                    }
+                }, 1500);
+            }, 1000);
         });
     }
 
