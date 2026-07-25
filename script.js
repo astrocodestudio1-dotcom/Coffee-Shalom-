@@ -79,7 +79,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 5. Filtros Dinámicos del Menú
+    // 5. Carrusel de Café
+    const track = document.getElementById('coffee-track');
+    const prevBtn = document.getElementById('coffee-prev');
+    const nextBtn = document.getElementById('coffee-next');
+    
+    if (track && prevBtn && nextBtn) {
+        let currentIndex = 0;
+        const slides = track.children;
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const slideWidth = slides[0].getBoundingClientRect().width + 30; // ancho + gap
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < totalSlides - 3) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Regresar al inicio
+            }
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlides - 3 > 0 ? totalSlides - 3 : 0;
+            }
+            updateCarousel();
+        });
+
+        window.addEventListener('resize', updateCarousel);
+    }
+
+    // 6. Filtros Dinámicos del Menú
     const filterBtns = document.querySelectorAll('.filter-btn');
     const menuItems = document.querySelectorAll('.menu-item-card');
 
@@ -100,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 6. Lightbox de Galería
+    // 7. Lightbox de Galería
     const galleryItems = document.querySelectorAll('.gallery-item img');
     const lightbox = id('lightbox') || document.querySelector('.lightbox-modal');
     const lightboxImg = id('lightbox-img') || document.querySelector('.lightbox-content');
@@ -127,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Formulario de Contacto Avanzado con Redirección a WhatsApp
+    // 8. Formulario de Contacto Avanzado con Redirección a WhatsApp
     const contactForm = id('contact-form') || document.querySelector('#contact-form');
     const formStatus = id('form-status') || document.querySelector('.form-status');
 
@@ -185,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. Partículas / Granos de Café Flotantes (Canvas)
+    // 9. Partículas / Granos de Café Flotantes (Canvas)
     initParticles();
 });
 
