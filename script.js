@@ -59,7 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (pos < window.innerHeight) {
                 statNumbers.forEach(stat => {
                     const targetAttr = stat.getAttribute('data-target');
-                    const target = targetAttr ? +targetAttr : parseInt(stat.innerText) || 100;
+                    if (!targetAttr) return; // Si es un símbolo como %, ignorar
+                    const target = parseInt(targetAttr) || 100;
                     let count = 0;
                     const speed = target / 50 || 1;
 
