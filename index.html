@@ -3,290 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Shalom | Café Gourmet & Repostería</title>
+    <title>Coffee Shalom | Café de Altura, Chocolates y Repostería Gourmet</title>
     
-    <meta name="description" content="Coffee Shalom: Café Gourmet, Repostería Fina, Chocolates Artesanales y Pan de Autor en Felipe Carrillo Puerto. Café, Amor y Bendición.">
+    <!-- Meta etiquetas SEO y Open Graph -->
+    <meta name="description" content="Descubre Coffee Shalom. Café artesanal de especialidad, chocolates finos, repostería gourmet y panadería tradicional horneada a diario.">
+    <meta property="og:title" content="Coffee Shalom | Experiencia Cafetera Premium">
+    <meta property="og:description" content="Café de especialidad, chocolates artesanales y repostería gourmet.">
+    <meta property="og:type" content="website">
     
-    <!-- Tipografías Premium -->
+    <!-- Tipografías de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- SDK Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- LOADER CON TU LOGO EXACTO VECTORIZADO -->
-    <div id="loader">
+    <!-- LOADER ELEGANTE -->
+    <div id="loader" class="loader-overlay">
         <div class="loader-content">
-            <svg class="shalom-logo-svg loader-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="250" cy="250" rx="200" ry="160" fill="none" stroke="#D4AF37" stroke-width="3"/>
-                <ellipse cx="250" cy="250" rx="192" ry="152" fill="none" stroke="#3D2314" stroke-width="1.5" stroke-dasharray="3,3"/>
-                <path d="M 250 80 Q 240 60 250 40 Q 260 60 250 80 M 240 70 Q 250 75 260 70" fill="none" stroke="#D4AF37" stroke-width="3"/>
-
-                <!-- TAZA DE CAFÉ -->
-                <g transform="translate(160, 110)">
-                    <path class="steam steam-1" d="M 30 15 Q 25 5 30 -5" fill="none" stroke="#3D2314" stroke-width="2.5" stroke-linecap="round"/>
-                    <path class="steam steam-2" d="M 40 12 Q 35 2 40 -8" fill="none" stroke="#3D2314" stroke-width="2.5" stroke-linecap="round"/>
-                    <path d="M 10 20 L 70 20 C 70 55 55 65 40 65 C 25 65 10 55 10 20 Z" fill="#FDFBF7" stroke="#3D2314" stroke-width="4"/>
-                    <path d="M 70 25 C 85 25 85 50 65 52" fill="none" stroke="#3D2314" stroke-width="4"/>
-                    <path d="M 40 38 C 38 32 30 32 30 38 C 30 44 40 50 40 50 C 40 50 50 44 50 38 C 50 32 42 32 40 38 Z" fill="#3D2314"/>
-                    <ellipse cx="40" cy="68" rx="45" ry="8" fill="#FDFBF7" stroke="#3D2314" stroke-width="3"/>
-                </g>
-
-                <!-- REBANADA DE PASTEL -->
-                <g transform="translate(260, 115)">
-                    <path d="M 10 60 L 80 30 L 80 60 Z" fill="#3D2314"/>
-                    <path d="M 10 45 L 80 15 L 80 30 L 10 60 Z" fill="#D7C4B7"/>
-                    <path d="M 10 30 L 80 0 L 80 15 L 10 45 Z" fill="#3D2314"/>
-                    <path d="M 80 0 C 60 10 50 0 30 15 C 20 10 10 25 10 30 L 80 15 Z" fill="#2C1810"/>
-                    <circle cx="55" cy="-2" r="10" fill="#FDFBF7" stroke="#3D2314" stroke-width="2"/>
-                    <circle cx="55" cy="-8" r="6" fill="#800020"/>
-                    <path d="M 55 -14 Q 65 -20 60 -28" fill="none" stroke="#3D2314" stroke-width="2"/>
-                </g>
-
-                <!-- TEXTO PRINCIPAL -->
-                <text x="250" y="255" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="42" fill="#2C1810" letter-spacing="2">COFFEE SHALOM</text>
-                <path d="M 180 275 L 320 275" stroke="#D4AF37" stroke-width="1"/>
-                <polygon points="250,272 254,275 250,278 246,275" fill="#D4AF37"/>
-                <text x="250" y="305" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#D4AF37" letter-spacing="8">CAKES</text>
-
-                <!-- LEMA EN ARCO -->
-                <path id="text-arc" d="M 120 380 A 180 140 0 0 0 380 380" fill="none"/>
-                <text font-family="'Montserrat', sans-serif" font-size="14" font-weight="600" fill="#2C1810" letter-spacing="4">
-                    <textPath href="#text-arc" startOffset="50%" text-anchor="middle">
-                        CAFÉ • AMOR • BENDICIÓN
-                    </textPath>
-                </text>
-            </svg>
-            <div class="progress-bar"><div class="progress"></div></div>
+            <div class="loader-cup">☕</div>
+            <h2>Coffee Shalom</h2>
+            <div class="spinner"></div>
         </div>
     </div>
 
-    <!-- NAVEGACIÓN -->
-    <header class="header">
-        <nav class="navbar">
-            <a href="#" class="brand-logo">
-                <svg class="shalom-logo-svg nav-logo" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="250" cy="250" rx="200" ry="160" fill="none" stroke="#D4AF37" stroke-width="4"/>
-                    <g transform="translate(160, 110)">
-                        <path class="steam steam-1" d="M 30 15 Q 25 5 30 -5" fill="none" stroke="#D4AF37" stroke-width="3"/>
-                        <path class="steam steam-2" d="M 40 12 Q 35 2 40 -8" fill="none" stroke="#D4AF37" stroke-width="3"/>
-                        <path d="M 10 20 L 70 20 C 70 55 55 65 40 65 C 25 65 10 55 10 20 Z" fill="none" stroke="#D4AF37" stroke-width="5"/>
-                        <path d="M 70 25 C 85 25 85 50 65 52" fill="none" stroke="#D4AF37" stroke-width="5"/>
-                    </g>
-                    <g transform="translate(260, 115)">
-                        <path d="M 10 60 L 80 30 L 80 60 Z" fill="#D4AF37"/>
-                        <circle cx="55" cy="-8" r="6" fill="#D4AF37"/>
-                    </g>
-                    <text x="250" y="260" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="46" fill="#D4AF37" letter-spacing="2">COFFEE SHALOM</text>
-                    <text x="250" y="305" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#FDFBF7" letter-spacing="8">CAKES</text>
-                </svg>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#cafe">Nuestro Café</a></li>
-                <li><a href="#chocolates">Chocolates</a></li>
-                <li><a href="#reposteria">Repostería</a></li>
-                <li><a href="#pan">Pan Artesanal</a></li>
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+    <!-- HEADER / BARRA DE NAVEGACIÓN -->
+    <header id="header" class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">Coffee <span>Shalom</span></a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#cafe">Nuestro Café</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
 
             <div class="nav-actions">
-                <button id="cart-btn" class="cart-icon-btn" aria-label="Ver Carrito">
-                    <svg viewBox="0 0 24 24" width="26" height="26" stroke="#D4AF37" stroke-width="2" fill="none">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                    <span id="cart-count">0</span>
+                <button id="cartBtn" class="cart-btn" aria-label="Abrir carrito de compras">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cartCount" class="cart-count">0</span>
+                </button>
+                <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- HERO PRINCIPAL -->
-    <section class="hero" id="hero">
+    <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="gold-tag">Café • Amor • Bendición</span>
-            <h1>El Arte del Encuentro</h1>
-            <p>Un viaje sensorial de sabor, amor y bendición.</p>
+            <span class="sub-badge">Excelencia Artesanal</span>
+            <h1>El Arte de Disfrutar un Café Extraordinario</h1>
+            <p>Granos selectos de altura, tostados a la perfección, acompañados de repostería gourmet y chocolates finos diseñados para despertar tus sentidos.</p>
             <div class="hero-buttons">
-                <a href="#catalogo" class="btn btn-gold">Explorar Selección</a>
-                <a href="#nosotros" class="btn btn-outline">Conócenos</a>
+                <a href="#catalogo" class="btn btn-primary">Ver Catálogo</a>
+                <a href="#cafe" class="btn btn-secondary">Conoce Nuestro Café</a>
             </div>
+        </div>
+        <div class="hero-vapor">
+            <span class="vapor-line"></span>
+            <span class="vapor-line"></span>
+            <span class="vapor-line"></span>
         </div>
     </section>
 
     <!-- NOSOTROS -->
-    <section class="section" id="nosotros">
+    <section id="nosotros" class="about section-padding">
         <div class="container grid-2">
-            <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80" alt="Nuestra Historia" loading="lazy">
+            <div class="about-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1000&q=80" alt="Granos de café Coffee Shalom" loading="lazy">
+                <div class="about-badge">
+                    <span>100%</span>
+                    <p>Artesanal y Selecto</p>
+                </div>
             </div>
-            <div class="content-wrapper">
-                <span class="section-subtitle">NUESTRA HISTORIA</span>
-                <h2>Calidad Suprema y Bendición en Cada Taza</h2>
-                <p>En <strong>Coffee Shalom</strong> elaboramos cada producto con dedicación, combinando granos de café seleccionados con repostería fina y chocolates gourmet que deslumbran los sentidos.</p>
-                <blockquote class="gold-quote">"Café • Amor • Bendición"</blockquote>
+            <div class="about-text">
+                <span class="section-subtitle">Tradición y Confianza</span>
+                <h2>Una Experiencia Creada para los Amantes del Buen Sabor</h2>
+                <p>En <strong>Coffee Shalom</strong> combinamos la rica tradición cafetera con estándares internacionales de calidad. Cada grano es seleccionado cuidadosamente para garantizar notas en taza equilibradas, con cuerpo profundo y aromas inconfundibles.</p>
+                <p>Nuestra pasión se extiende a la repostería y chocolatería, elaboradas artesanalmente cada día para acompañar tu taza perfecta.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-seedling"></i>
+                        <h4>Granos Selectos</h4>
+                        <p>Cosecha de altura rigurosamente seleccionada.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-cookie-bite"></i>
+                        <h4>Repostería Diaria</h4>
+                        <p>Horneados frescos con ingredientes gourmet.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- NUESTRO CAFÉ -->
-    <section class="section bg-dark" id="cafe">
-        <div class="container grid-2 reverse">
-            <div class="content-wrapper">
-                <span class="section-subtitle">NUESTRO PRODUCTO ESTRELLA</span>
-                <h2>Café Shalom - Tradición y Tueste Perfecto</h2>
-                <p>Tueste perfecto, aroma envolvente y cuerpo equilibrado. Cosechado y tostado bajo los más altos estándares.</p>
-                <a href="#catalogo" class="btn btn-gold">Añadir al Carrito</a>
-            </div>
-            <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=1000&q=80" alt="Café Shalom" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- CHOCOLATES ARTESANALES -->
-    <section class="section" id="chocolates">
+    <!-- NUESTRO CAFÉ COFFEE SHALOM -->
+    <section id="cafe" class="product-spotlight section-padding bg-light">
         <div class="container grid-2">
-            <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=1000&q=80" alt="Chocolates Artesanales" loading="lazy">
+            <div class="spotlight-text">
+                <span class="section-subtitle">Nuestra Insignia</span>
+                <h2>Café Coffee Shalom: El Orgullo de la Casa</h2>
+                <p>Nuestro producto estrella nace de tierras fértiles y un proceso de tueste artesanal único. Presenta notas sutiles de chocolate amargo, frutos secos y un retrogusto sumamente prolongado y sedoso.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check"></i> Tueste medio-oscuro equilibrado</li>
+                    <li><i class="fas fa-check"></i> Presentación en grano y molido (250g, 500g, 1kg)</li>
+                    <li><i class="fas fa-check"></i> Empaque hermético con válvula desgasificadora</li>
+                </ul>
+                <a href="#catalogo" class="btn btn-primary">Comprar Café Shalom</a>
             </div>
-            <div class="content-wrapper">
-                <span class="section-subtitle">DULCE ESENCIA</span>
-                <h2>Chocolates Artesanales</h2>
-                <p>Trufas de autor y bombones elaborados con cacaos finos de aroma y rellenos artesanales únicos.</p>
+            <div class="spotlight-image">
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=1000&q=80" alt="Empaque de Café Coffee Shalom" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- REPOSTERÍA Y PAN -->
-    <section class="section bg-dark" id="reposteria">
-        <div class="container grid-2 reverse">
-            <div class="content-wrapper">
-                <span class="section-subtitle">PLACERES HORNEADOS</span>
-                <h2>Repostería Gourmet & Pan Artesanal</h2>
-                <p>Desde tartas exquisitas de chocolate y cerezo hasta pan recién horneado con masa madre directamente del horno a tu mesa.</p>
+    <!-- CHOCOLATES ARTESANALES & REPOSTERÍA -->
+    <section class="artisan-showcase section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Indulgencia Pura</span>
+                <h2>Chocolates, Pan y Repostería Gourmet</h2>
+                <p>El maridaje perfecto para elevar cada sorbo de café.</p>
             </div>
-            <div class="img-wrapper">
-                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80" alt="Repostería y Pan Artesanal" loading="lazy">
+            <div class="grid-3">
+                <div class="card-3d">
+                    <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80" alt="Chocolates Artesanales" loading="lazy">
+                    <div class="card-3d-content">
+                        <h3>Chocolates Artesanales</h3>
+                        <p>Elaborados con cacao fino de origen, rellenos cremosos y texturas crujientes.</p>
+                    </div>
+                </div>
+                <div class="card-3d">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Pan Artesanal" loading="lazy">
+                    <div class="card-3d-content">
+                        <h3>Pan Artesanal</h3>
+                        <p>Masa madre, fermentaciones lentas y cortezas doradas perfectas.</p>
+                    </div>
+                </div>
+                <div class="card-3d">
+                    <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80" alt="Repostería Gourmet" loading="lazy">
+                    <div class="card-3d-content">
+                        <h3>Repostería y Postres</h3>
+                        <p>Pasteles finos, tartas de frutos rojos y creaciones de alta repostería.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CATÁLOGO DE PRODUCTOS -->
-    <section class="section" id="catalogo">
+    <section id="catalogo" class="catalog section-padding bg-light">
         <div class="container">
-            <div class="text-center">
-                <span class="section-subtitle">PRODUCTOS DESTACADOS</span>
-                <h2>Nuestro Catálogo</h2>
+            <div class="section-header text-center">
+                <span class="section-subtitle">Nuestra Tienda</span>
+                <h2>Catálogo de Productos Exclusivos</h2>
+                <p>Selecciona tus favoritos y añádelos al carrito de compras.</p>
             </div>
-            <div class="product-grid" id="product-container"></div>
+            
+            <div class="catalog-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="cafe">Café</button>
+                <button class="filter-btn" data-filter="chocolate">Chocolates</button>
+                <button class="filter-btn" data-filter="reposteria">Repostería & Pan</button>
+            </div>
+
+            <div class="catalog-grid" id="productCatalog">
+                <!-- Los productos se cargan dinámicamente o por HTML estricto optimizado -->
+                <div class="product-card" data-category="cafe" data-id="1" data-name="Café Coffee Shalom Clásico 500g" data-price="280">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=500&q=80" alt="Café Coffee Shalom Clásico" loading="lazy">
+                        <span class="product-tag">Estrella</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Café Coffee Shalom Clásico 500g</h3>
+                        <p class="product-desc">Notas de chocolate y frutos secos. Tueste medio.</p>
+                        <div class="product-footer">
+                            <span class="price">$280.00 MXN</span>
+                            <button class="btn btn-sm add-to-cart">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cafe" data-id="2" data-name="Café Coffee Shalom Reserva Especial 1kg" data-price="520">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" alt="Café Reserva Especial" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Café Reserva Especial 1kg</h3>
+                        <p class="product-desc">Selección de altura premium en grano entero.</p>
+                        <div class="product-footer">
+                            <span class="price">$520.00 MXN</span>
+                            <button class="btn btn-sm add-to-cart">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="chocolate" data-id="3" data-name="Caja de Chocolates Finos Artesanales" data-price="350">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=80" alt="Chocolates Artesanales" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Caja de Chocolates Finos</h3>
+                        <p class="product-desc">12 piezas rellenas de trufa y frutos tropicales.</p>
+                        <div class="product-footer">
+                            <span class="price">$350.00 MXN</span>
+                            <button class="btn btn-sm add-to-cart">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="reposteria" data-id="4" data-name="Pan Artesanal de Masa Madre" data-price="120">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Pan Artesanal" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Pan Artesanal de Masa Madre</h3>
+                        <p class="product-desc">Horneado diariamente con costra crujiente.</p>
+                        <div class="product-footer">
+                            <span class="price">$120.00 MXN</span>
+                            <button class="btn btn-sm add-to-cart">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="reposteria" data-id="5" data-name="Pay Rústico de Queso con Frutos Rojos" data-price="210">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" alt="Pay de Queso" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Pay Rústico de Queso</h3>
+                        <p class="product-desc">Cubierto con compota artesanal de frutos rojos.</p>
+                        <div class="product-footer">
+                            <span class="price">$210.00 MXN</span>
+                            <button class="btn btn-sm add-to-cart">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="chocolate" data-id="6" data-name="Barra de Cacao Orgánico 85%" data-price="95">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=500&q=80" alt="Barra de Cacao" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Barra de Cacao Orgánico 85%</h3>
+                        <p class="product-desc">Intenso, puro y con notas aromáticas florales.</p>
+                        <div class="product-footer">
+                            <span class="price">$95.00 MXN</span>
+                            <button class="btn btn-sm add-to-cart">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- TESTIMONIOS -->
-    <section class="section bg-dark">
-        <div class="container max-800 text-center">
-            <span class="section-subtitle">TESTIMONIOS</span>
-            <h2>Lo que opinan nuestros clientes</h2>
-            <blockquote class="gold-quote" style="border:none; font-size:1.3rem; margin-top:20px;">
-                "Una experiencia inolvidable. El aroma del café Shalom combinado con sus trufas de autor es simplemente perfecto."
-            </blockquote>
+    <section id="testimonios" class="testimonials section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Opiniones</span>
+                <h2>Lo que Dicen Nuestros Clientes</h2>
+                <p>La experiencia Coffee Shalom reflejada en palabras.</p>
+            </div>
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"El café Coffee Shalom tiene un aroma inigualable. Comprar el grano entero para prepararlo en casa todas las mañanas se ha vuelto mi ritual favorito."</p>
+                    <h4>Mariana G.</h4>
+                    <span>Cliente Frecuente</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Los chocolates artesanales y la repostería son de otro nivel. Se nota la dedicación y la calidad de los ingredientes en cada bocado."</p>
+                    <h4>Carlos M.</h4>
+                    <span>Amante del Café</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Excelente atención y productos sumamente exclusivos. El pan artesanal fresco es simplemente delicioso."</p>
+                    <h4>Sofía R.</h4>
+                    <span>Crítica Gastronómica</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- PREGUNTAS FRECUENTES -->
-    <section class="section">
-        <div class="container max-800">
-            <div class="text-center">
-                <span class="section-subtitle">DUDAS</span>
+    <section class="faq section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Dudas Comunes</span>
                 <h2>Preguntas Frecuentes</h2>
             </div>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>¿Cómo realizo un pedido directo?</summary>
-                    <p>Puedes agregar tus productos al carrito y pagar en línea o tocar el botón flotante de WhatsApp para atención inmediata.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Tienen envíos o dudas de compra?</summary>
-                    <p>Sí, contáctanos directamente a nuestro correo coffeshalom1@gmail.com o vía WhatsApp.</p>
-                </details>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">¿Realizan envíos a todo México?<span class="icon">+</span></button>
+                    <div class="faq-answer"><p>Sí, enviamos nuestros cafés empacados al alto vacío y chocolates a toda la República Mexicana garantizando su frescura.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿El café se puede pedir molido según mi cafetera?<span class="icon">+</span></button>
+                    <div class="faq-answer"><p>Claro que sí. Al realizar tu pedido vía WhatsApp o notas, puedes especificar si lo requieres para prensa francesa, espresso, cafetera de filtro o grano entero.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Cómo se elaboran los chocolates artesanales?<span class="icon">+</span></button>
+                    <div class="faq-answer"><p>Nuestros chocolates se producen en pequeños lotes utilizando cacao mexicano de origen seleccionado y técnicas artesanales europeas.</p></div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CONTACTO Y UBICACIÓN -->
-    <section class="section bg-dark" id="contacto">
+    <section id="contacto" class="contact section-padding">
         <div class="container grid-2">
-            <div>
-                <span class="section-subtitle">UBICACIÓN</span>
-                <h2>Visítanos</h2>
-                <address class="address-box">
-                    DGNAL 45 x 68 y Av. Benito Juárez<br>
-                    Colonia Juan Bautista Vega<br>
-                    Felipe Carrillo Puerto, Quintana Roo, México
-                </address>
-                <p style="margin-top:20px; color:var(--color-gold);">📧 coffeshalom1@gmail.com</p>
+            <div class="contact-info">
+                <span class="section-subtitle">Conéctate con Nosotros</span>
+                <h2>Visítanos o Envíanos un Mensaje</h2>
+                <p>Estamos para atenderte y responder cualquier consulta sobre nuestros productos y pedidos especiales.</p>
+                
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Ubicación</h4>
+                        <p>DGNAL 45 x 68 y Av. Benito Juárez<br>Colonia Juan Bautista Vega<br>Felipe Carrillo Puerto, Quintana Roo, México.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Correo Electrónico</h4>
+                        <p>coffeshalom1@gmail.com</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <form id="contact-form" class="custom-form">
-                    <div class="form-group"><input type="text" id="name" placeholder="Nombre" required></div>
-                    <div class="form-group"><input type="email" id="email" placeholder="Correo" required></div>
-                    <div class="form-group"><input type="tel" id="phone" placeholder="Teléfono" required></div>
-                    <div class="form-group"><input type="text" id="subject" placeholder="Asunto" required></div>
-                    <div class="form-group"><textarea id="message" rows="4" placeholder="Mensaje" required></textarea></div>
-                    <button type="submit" class="btn btn-gold btn-block">Enviar Mensaje</button>
-                    <div id="form-feedback"></div>
+
+            <div class="contact-form-wrapper">
+                <form id="contactForm" class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+                        <span class="error-msg" id="errorNombre"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico *</label>
+                        <input type="email" id="correo" name="correo" placeholder="tucorreo@gmail.com">
+                        <span class="error-msg" id="errorCorreo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="9971234567">
+                        <span class="error-msg" id="errorTelefono"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="asunto">Asunto *</label>
+                        <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu mensaje">
+                        <span class="error-msg" id="errorAsunto"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+                        <span class="error-msg" id="errorMensaje"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
+                    <div id="formSuccess" class="form-success"></div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER PROFESIONAL -->
     <footer class="footer">
-        <div class="container text-center">
-            <svg class="shalom-logo-svg nav-logo" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:120px; height:120px; margin:0 auto 15px;">
-                <ellipse cx="250" cy="250" rx="200" ry="160" fill="none" stroke="#D4AF37" stroke-width="4"/>
-                <text x="250" y="260" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="700" font-size="46" fill="#D4AF37">COFFEE SHALOM</text>
-                <text x="250" y="305" text-anchor="middle" font-family="'Montserrat', sans-serif" font-weight="600" font-size="22" fill="#FDFBF7" letter-spacing="8">CAKES</text>
-            </svg>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Coffee <span>Shalom</span></h3>
+                <p>Excelencia, tradición y calidad artesanal en cada taza de café y cada postre gourmet.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#cafe">Nuestro Café</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Horarios de Atención</h4>
+                <p>Lunes a Sábado: 7:00 AM - 9:00 PM</p>
+                <p>Domingos: 8:00 AM - 6:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
             <p>&copy; 2026 Coffee Shalom. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- CARRITO SIDEBAR -->
-    <div id="cart-sidebar" class="cart-sidebar">
-        <div class="cart-header">
-            <h3>Carrito de Compras</h3>
-            <button id="close-cart" class="close-btn">&times;</button>
-        </div>
-        <div id="cart-items" class="cart-body"></div>
-        <div class="cart-footer">
-            <div class="cart-summary">
-                <p>Subtotal: <span id="cart-subtotal">$0.00 MXN</span></p>
-                <h4>Total: <span id="cart-total">$0.00 MXN</span></h4>
-            </div>
-            <button id="clear-cart-btn" class="btn btn-outline-sm" style="margin-bottom:10px;">Vaciar Carrito</button>
-            <button id="stripe-checkout-btn" class="btn btn-gold btn-block">Pagar con Stripe</button>
-        </div>
-    </div>
-    <div id="cart-overlay" class="cart-overlay"></div>
-
-    <!-- UN SOLO BOTÓN FLOTANTE DE WHATSAPP -->
-    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95.%20Me%20gustar%C3%ADa%20realizar%20un%20pedido." 
-       class="whatsapp-float" target="_blank" aria-label="Contacto WhatsApp">
-        <svg viewBox="0 0 32 32" width="30" height="30"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.135c2.373 1.284 5.056 1.96 7.865 1.96 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.28c-2.43 0-4.809-0.655-6.886-1.895l-0.494-0.295-5.115 1.341 1.366-5.083-0.323-0.514c-1.364-2.167-2.087-4.682-2.087-7.254 0-7.323 5.957-13.28 13.28-13.28s13.28 5.957 13.28 13.28c0 7.323-5.957 13.28-13.28 13.28z" fill="#FFF"/></svg>
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95.%0AMe%20gustar%C3%ADa%20realizar%20un%20pedido." 
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat de WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- MODAL / CARRITO DE COMPRAS -->
+    <div id="cartModal" class="cart-modal-overlay">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h3>Tu Carrito de Compras</h3>
+                <button id="closeCart" class="close-cart"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-body" id="cartItemsContainer">
+                <!-- Productos agregados aparecerán aquí -->
+                <p class="empty-cart-msg">Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00 MXN</span>
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00 MXN</span>
+                </div>
+                <div class="cart-actions-buttons">
+                    <button id="clearCartBtn" class="btn btn-secondary btn-sm">Vaciar Carrito</button>
+                    
+                    <!-- CONFIGURACIÓN DE STRIPE -->
+                    <!-- 
+                      IMPORTANTE: 
+                      1. Reemplaza 'pk_test_TU_CLAVE_PUBLICA_AQUI' con tu Clave Pública de Stripe cuando la tengas configurada.
+                      2. Las credenciales secretas se procesan en tu servidor backend. Aquí inicializamos la pasarela en modo prueba.
+                    -->
+                    <button id="stripeCheckoutBtn" class="btn btn-primary btn-full">Pagar con Stripe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT JS -->
     <script src="script.js"></script>
 </body>
 </html>
