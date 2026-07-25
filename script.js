@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Formulario de Contacto Avanzado con Redirección a WhatsApp
+    // 7. Formulario de Contacto Avanzado con Redirección a WhatsApp (Número: 9971668631)
     const contactForm = id('contact-form') || document.querySelector('#contact-form');
     const formStatus = id('form-status') || document.querySelector('.form-status');
 
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const waText = encodeURIComponent(`Hola Coffee Shalom, mi nombre es ${name}. Correo: ${email}. Tel: ${phone}. Mensaje/Pedido: ${message}`);
                 
                 setTimeout(() => {
-                    window.open(`https://wa.me/?text=${waText}`, '_blank');
+                    window.open(`https://wa.me/529971668631?text=${waText}`, '_blank');
                     contactForm.reset();
                     if (submitBtn) {
                         submitBtn.innerHTML = originalBtnText;
