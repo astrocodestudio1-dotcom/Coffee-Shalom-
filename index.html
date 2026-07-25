@@ -3,194 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Shalom - Felipe Carrillo Puerto</title>
-    <!-- FontAwesome para Iconos -->
+    <title>Coffee Shalom | Café de Especialidad, Repostería Gourmet & Chocolates</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Coffee Shalom: Café de alta especialidad, repostería gourmet, pan artesanal y chocolates en Felipe Carrillo Puerto. Café • Amor • Bendición en cada taza.">
+    <meta name="keywords" content="Coffee Shalom, Café de Especialidad, Repostería Gourmet, Chocolates Artesanales, Pan Artesanal, Cakes, Felipe Carrillo Puerto, Quintana Roo">
+    <meta name="author" content="Coffee Shalom">
+
+    <!-- Open Graph / Meta Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://coffeeshalom.com/">
+    <meta property="og:title" content="Coffee Shalom | Café • Amor • Bendición">
+    <meta property="og:description" content="Una experiencia gastronómica de café de especialidad y repostería artesanal única en Quintana Roo.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1200">
+
+    <!-- Tipografías elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    
-    <!-- Header / Navegación -->
-    <header>
-        <div class="container navbar">
-            <div class="logo">COFFEE SHALOM</div>
+    <!-- LOADER ELEGANTE CREADO EN CÓDIGO -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="vector-logo-box loader-logo-box">
+                <div class="steam-container">
+                    <div class="steam"></div>
+                    <div class="steam"></div>
+                    <div class="steam"></div>
+                </div>
+                <i class="fa-solid fa-mug-hot logo-icon-svg"></i>
+                <div class="logo-title-vector">COFFEE SHALOM</div>
+                <div class="logo-subtitle-vector">CAKES & SPECIALTY COFFEE</div>
+            </div>
+            <p class="loader-tagline">CAFÉ • AMOR • BENDICIÓN</p>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- LOGO EN CÓDIGO -->
+            <a href="#hero" class="brand-logo-text">
+                <i class="fa-solid fa-mug-hot"></i>
+                <div class="brand-text-wrapper">
+                    <span class="brand-name">COFFEE SHALOM</span>
+                    <span class="brand-tagline">CAKES & COFFEE</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Inicio</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#cafe" class="nav-link">Nuestro Café</a></li>
+                    <li><a href="#chocolates" class="nav-link">Chocolates</a></li>
+                    <li><a href="#reposteria" class="nav-link">Repostería</a></li>
+                    <li><a href="#panaderia" class="nav-link">Pan Artesanal</a></li>
+                    <li><a href="#galeria" class="nav-link">Galería</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
             <div class="nav-actions">
-                <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20quisiera%20hacer%20un%20pedido" target="_blank" class="btn btn-gold btn-sm"><i class="fa-brands fa-whatsapp"></i> Pedir Ahora</a>
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menú">
-                    <i class="fa-solid fa-bars"></i>
+                <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95%2C%20me%20gustar%C3%ADa%20realizar%20un%20pedido." target="_blank" rel="noopener" class="btn btn-gold btn-sm">
+                    <i class="fa-brands fa-whatsapp"></i> Pedir
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Abrir Menú">
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Sección del Menú -->
-    <section id="menu" class="section-padding menu-section">
-        <div class="container">
-            <div class="section-header text-center reveal">
-                <span class="section-subtitle">NUESTRA CARTA</span>
-                <h2 class="section-title">Menú Destacado</h2>
-                <p class="section-desc">Filtra por tu especialidad favorita y explora nuestra oferta culinaria.</p>
+    <!-- HERO PRINCIPAL -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="floating-beans" id="beans-container"></div>
+        <div class="container hero-content">
+            <span class="badge-gold reveal-fade">CAFÉ • AMOR • BENDICIÓN</span>
+            <h1 class="reveal-title">La Elegancia Hecha Café & Repostería</h1>
+            <p class="reveal-text">Un rincón exclusivo en Felipe Carrillo Puerto donde la tradición artesanal, el aroma de nuestros mejores tuestes y la repostería fina se funden en un momento de paz.</p>
+            <div class="hero-buttons reveal-btn">
+                <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95%2C%20me%20gustar%C3%ADa%20realizar%20un%20pedido." target="_blank" rel="noopener" class="btn btn-gold">
+                    <i class="fa-brands fa-whatsapp"></i> Hacer Pedido por WhatsApp
+                </a>
+                <a href="#nosotros" class="btn btn-outline">Conócenos</a>
             </div>
+        </div>
+        <a href="#nosotros" class="scroll-down" aria-label="Desplazar abajo">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+    </section>
 
-            <!-- Botones de Filtro (Sin Desayunos & Snacks) -->
-            <div class="filter-buttons text-center reveal">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="coffee">Café</button>
-                <button class="filter-btn" data-filter="bakery">Repostería</button>
-                <button class="filter-btn" data-filter="chocolate">Chocolates</button>
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="section-padding bg-cream">
+        <div class="container grid-2">
+            <div class="section-img-wrapper reveal-left">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1000" alt="Experiencia Coffee Shalom" loading="lazy">
+                <div class="experience-badge">
+                    <span class="number">100%</span>
+                    <span class="text">Artesanal & Gourmet</span>
+                </div>
             </div>
-
-            <!-- Items del Menú -->
-            <div class="grid-3 menu-items-container">
-                <div class="menu-item-card glass-card reveal" data-category="coffee">
-                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Mocha Blanco">
-                    <div class="menu-item-info">
-                        <div class="item-header">
-                            <h4>Mocha Blanco & Cacao</h4>
-                            <span class="price">$75 MXN</span>
-                        </div>
-                        <p>Espresso, chocolate blanco suizo y leche al vapor.</p>
+            <div class="section-text reveal-right">
+                <span class="sub-title">NUESTRA HISTORIA Y ESENCIA</span>
+                <h2>Sabor, Tradición y Pasión en Cada Detalle</h2>
+                <p>En <strong>Coffee Shalom</strong>, concebimos cada taza y cada postre como una bendición compartida. Nuestra visión nace de la pasión por los procesos artesanales cuidadosos, seleccionando únicamente materias primas de la más alta calidad.</p>
+                <p>Inspirados en las mejores casas de café y chocolaterías internacionales, creamos una atmósfera cálida y distinguida donde cada visita se transforma en un recuerdo memorable.</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-seedling"></i>
+                        <span>Granos de Origen Seleccionado</span>
                     </div>
-                </div>
-
-                <div class="menu-item-card glass-card reveal" data-category="bakery">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Pan Artesanal Masa Madre">
-                    <div class="menu-item-info">
-                        <div class="item-header">
-                            <h4>Pan de Masa Madre</h4>
-                            <span class="price">$90 MXN</span>
-                        </div>
-                        <p>Fermentación lenta de 24 hrs horneado al momento.</p>
-                    </div>
-                </div>
-
-                <div class="menu-item-card glass-card reveal" data-category="chocolate">
-                    <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?q=80&w=600&auto=format&fit=crop" alt="Trufas de Avellana">
-                    <div class="menu-item-info">
-                        <div class="item-header">
-                            <h4>Trufas de Ron & Avellana (6 pzas)</h4>
-                            <span class="price">$120 MXN</span>
-                        </div>
-                        <p>Trufas espolvoreadas con cacao holandés.</p>
-                    </div>
-                </div>
-
-                <div class="menu-item-card glass-card reveal" data-category="coffee">
-                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600&auto=format&fit=crop" alt="Flat White">
-                    <div class="menu-item-info">
-                        <div class="item-header">
-                            <h4>Flat White Especial</h4>
-                            <span class="price">$65 MXN</span>
-                        </div>
-                        <p>Doble shot de ristretto con microespuma ligera.</p>
-                    </div>
-                </div>
-
-                <div class="menu-item-card glass-card reveal" data-category="bakery">
-                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop" alt="Galletas Gourmet">
-                    <div class="menu-item-info">
-                        <div class="item-header">
-                            <h4>Galleta Choco-Chips XXL</h4>
-                            <span class="price">$45 MXN</span>
-                        </div>
-                        <p>Centro suave con chispas 60% cacao y sal marina.</p>
-                    </div>
-                </div>
-
-                <div class="menu-item-card glass-card reveal" data-category="chocolate">
-                    <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=600&auto=format&fit=crop" alt="Chocolate Caliente Artesanal">
-                    <div class="menu-item-info">
-                        <div class="item-header">
-                            <h4>Chocolate Caliente Especiado</h4>
-                            <span class="price">$70 MXN</span>
-                        </div>
-                        <p>Cacao puro con toque de canela y vainilla de la casa.</p>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-cake-candles"></i>
+                        <span>Repostería Fina de Autor</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Ubicación -->
-    <section id="location" class="section-padding location-section bg-dark">
-        <div class="container grid-2 align-center">
-            <div class="location-info reveal">
-                <span class="section-subtitle">VISÍTANOS</span>
-                <h2 class="section-title">Un Rincón Diseñado para Ti</h2>
-                <p class="body-text">Te esperamos para brindarte una atención impecable en un ambiente acogedor y moderno.</p>
-                
-                <div class="info-list">
-                    <div class="info-item">
-                        <i class="fa-solid fa-location-dot text-gold"></i>
-                        <div>
-                            <h4>Ubicación</h4>
-                            <p>DGNAL 45 x 68 y Av. Benito Juárez,<br>Col. Juan Bautista Vega, Felipe Carrillo Puerto, Quintana Roo.</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-clock text-gold"></i>
-                        <div>
-                            <h4>Horario de Atención</h4>
-                            <p>Lunes a Sábado: 8:00 AM – 9:30 PM<br>Domingo: 9:00 AM – 8:00 PM</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-phone text-gold"></i>
-                        <div>
-                            <h4>Contacto Directo</h4>
-                            <p>Tel / WhatsApp: +52 997 166 8631</p>
-                        </div>
-                    </div>
+    <!-- NUESTRO CAFÉ COFFEE SHALOM -->
+    <section id="cafe" class="section-padding bg-dark text-white parallax-section">
+        <div class="container grid-2 reverse">
+            <div class="section-text reveal-left">
+                <span class="sub-title gold">NUESTRO PRODUCTO INSIGNIA</span>
+                <h2>Café Coffee Shalom</h2>
+                <p>Un tostado artesanal calibrado a la perfección. Nuestro café combina notas ahumadas, acidez equilibrada y una textura aterciopelada que reconforta el alma.</p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-check gold"></i> Disponible en grano entero y molienda fresca personalizada.</li>
+                    <li><i class="fa-solid fa-check gold"></i> Empaques sellados al vacío para preservar aroma y aceites esenciales.</li>
+                    <li><i class="fa-solid fa-check gold"></i> Seleccionado de fincas sustentables de alta altitud.</li>
+                </ul>
+                <div class="btn-group-margin">
+                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95%2C%20me%20gustar%C3%ADa%20comprar%20su%20Caf%C3%A9%20Coffee%20Shalom." target="_blank" rel="noopener" class="btn btn-gold">
+                        <i class="fa-brands fa-whatsapp"></i> Adquirir Café en Grano / Molido
+                    </a>
                 </div>
             </div>
-
-            <!-- Mapa de Google enfocado en Felipe Carrillo Puerto, Q.R. -->
-            <div class="map-container glass-card reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15024.123456789!2d-88.0495!3d19.5772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f51a44f51e04cfb%3A0x6b4458d92983794e!2sFelipe%20Carrillo%20Puerto%2C%20Q.R.!5e0!3m2!1ses!2smx!4v1689000000000!5m2!1ses!2smx" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="section-img-wrapper reveal-right">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1000" alt="Empaque y Granos de Café Coffee Shalom" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- Sección de Contacto -->
-    <section id="contact" class="section-padding contact-section">
-        <div class="container">
-            <div class="section-header text-center reveal">
-                <span class="section-subtitle">CONTACTO DIRECTO</span>
-                <h2 class="section-title">Reserva o Haz tu Pedido</h2>
+    <!-- CHOCOLATES ARTESANALES -->
+    <section id="chocolates" class="section-padding bg-beige">
+        <div class="container grid-2">
+            <div class="section-img-wrapper reveal-left">
+                <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=1000" alt="Chocolates Artesanales" loading="lazy">
+            </div>
+            <div class="section-text reveal-right">
+                <span class="sub-title">CACAO PURO & TRUFAS</span>
+                <h2>Chocolates Artesanales</h2>
+                <p>Creaciones elaboradas por expertos chocolateros utilizando selecciones finas de cacao. Un deleite para los paladares más exigentes que buscan texturas sedosas y sabores profundos.</p>
+                <ul class="check-list dark-check">
+                    <li><i class="fa-solid fa-star gold"></i> Bombones rellenos de ganache, avellana y café espresso.</li>
+                    <li><i class="fa-solid fa-star gold"></i> Trufas artesanales espolvoreadas con cacao puro.</li>
+                    <li><i class="fa-solid fa-star gold"></i> Tabletas con porcentaje de cacao del 50% al 85%.</li>
+                </ul>
+                <div class="btn-group-margin">
+                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95%2C%20me%20gustar%C3%ADa%20pedir%20Chocolates%20Artesanales." target="_blank" rel="noopener" class="btn btn-gold">
+                        <i class="fa-brands fa-whatsapp"></i> Pedir Chocolates
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPOSTERÍA GOURMET -->
+    <section id="reposteria" class="section-padding bg-cream">
+        <div class="container grid-2 reverse">
+            <div class="section-text reveal-left">
+                <span class="sub-title">CAKES & DULCE TENTACIÓN</span>
+                <h2>Repostería Gourmet</h2>
+                <p>Nuestra repostería es el complemento insustituible para tu café. Pasteles, cupcakes y tartas horneados diariamente con recetas exclusivas que equilibran dulzura y distinción.</p>
+                <ul class="check-list dark-check">
+                    <li><i class="fa-solid fa-cake-candles gold"></i> Pasteles de autor y tartas de frutas frescas.</li>
+                    <li><i class="fa-solid fa-cookie-bite gold"></i> Cupcakes esponjosos decorados con frosting artesanal.</li>
+                    <li><i class="fa-solid fa-stroopwafel gold"></i> Galletas horneadas y postres individuales finos.</li>
+                </ul>
+                <div class="btn-group-margin">
+                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95%2C%20me%20gustar%C3%ADa%20ordenar%20Reposter%C3%ADa%20Gourmet." target="_blank" rel="noopener" class="btn btn-gold">
+                        <i class="fa-brands fa-whatsapp"></i> Ver Menú de Postres
+                    </a>
+                </div>
+            </div>
+            <div class="section-img-wrapper reveal-right">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1000" alt="Pasteles y Repostería Fine Coffee Shalom" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- PAN ARTESANAL -->
+    <section id="panaderia" class="section-padding bg-beige">
+        <div class="container grid-2">
+            <div class="section-img-wrapper reveal-left">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000" alt="Pan Artesanal Horneado" loading="lazy">
+            </div>
+            <div class="section-text reveal-right">
+                <span class="sub-title">MASA MADRE & CRUNCHY</span>
+                <h2>Pan Artesanal Recién Horneado</h2>
+                <p>Sentir el crujido del primer bocado de un pan horneado a mano es una experiencia inigualable. Utilizamos fermentaciones lentas y mantequilla de primera calidad.</p>
+                <ul class="check-list dark-check">
+                    <li><i class="fa-solid fa-bread-slice gold"></i> Croissants dorados con capas hojaldradas perfectas.</li>
+                    <li><i class="fa-solid fa-bread-slice gold"></i> Hogazas de masa madre e integrales.</li>
+                    <li><i class="fa-solid fa-bread-slice gold"></i> Panecillos dulces e innovadores rellenos.</li>
+                </ul>
+                <div class="btn-group-margin">
+                    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95%2C%20quisiera%20pedir%20Pan%20Artesanal." target="_blank" rel="noopener" class="btn btn-gold">
+                        <i class="fa-brands fa-whatsapp"></i> Ordenar Pan Recién Horneado
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA LIGHTBOX -->
+    <section id="galeria" class="section-padding bg-dark text-white">
+        <div class="container text-center">
+            <span class="sub-title gold">GALERÍA FOTOGRÁFICA</span>
+            <h2 class="section-main-title">Experiencia Visual Shalom</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600" alt="Arte del Café Shalom" loading="lazy">
+                    <div class="overlay-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Preparación de Expreso" loading="lazy">
+                    <div class="overlay-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=600" alt="Repostería Fina" loading="lazy">
+                    <div class="overlay-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=600" alt="Espacio y Calidez Shalom" loading="lazy">
+                    <div class="overlay-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Fotografía ampliada">
+    </div>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section-padding bg-beige">
+        <div class="container max-w-800">
+            <div class="text-center">
+                <span class="sub-title">RESOLVEMOS TUS DUDAS</span>
+                <h2 class="section-main-title">Preguntas Frecuentes</h2>
             </div>
 
-            <div class="form-wrapper glass-card max-width-600 center-margin reveal">
-                <!-- Configurado para enviar a coffeshalom1@gmail.com -->
-                <form id="contact-form" action="https://formsubmit.co/coffeshalom1@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="¡Nuevo Pedido/Mensaje desde la Web de Coffee Shalom!">
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">¿Cómo puedo realizar un pedido para recoger o entrega local? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Puedes presionar cualquiera de nuestros botones de WhatsApp. Serás redirigido directamente a nuestro chat oficial donde tomarán tu orden de inmediato.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Venden el Café Coffee Shalom en grano o molido? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>¡Sí! Contamos con empaques especiales de nuestro tostado de la casa, disponible tanto en grano entero como molido para cafetera espresso, prensa francesa o filtro.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Aceptan pedidos especiales para eventos o pasteles enteros? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Elaboramos repostería gourmet bajo pedido especial con anticipación. Contáctanos por teléfono o WhatsApp para coordinar los detalles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO Y UBICACIÓN -->
+    <section id="contacto" class="section-padding bg-dark text-white">
+        <div class="container grid-2">
+            
+            <!-- Formulario de Contacto -->
+            <div class="contact-form-wrapper">
+                <span class="sub-title gold">ESCRIBENOS UN MENSAJE</span>
+                <h2>Contacto Directo</h2>
+                <form id="contactForm" action="https://formsubmit.co/coffeshalom1@gmail.com" method="POST" novalidate>
                     <input type="hidden" name="_captcha" value="false">
                     
                     <div class="form-group">
-                        <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" name="name" required placeholder="Ej. María López">
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo *" required>
+                        <small class="error-msg"></small>
                     </div>
                     <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+                        <input type="email" id="email" name="email" placeholder="Correo electrónico *" required>
+                        <small class="error-msg"></small>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Teléfono / WhatsApp</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="9971668631">
+                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono *" required>
+                        <small class="error-msg"></small>
                     </div>
                     <div class="form-group">
-                        <label for="message">Mensaje o Pedido Especial</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="Escribe aquí tu pedido o consulta..."></textarea>
+                        <input type="text" id="asunto" name="asunto" placeholder="Asunto *" required>
+                        <small class="error-msg"></small>
                     </div>
-                    <button type="submit" class="btn btn-gold btn-block glow-effect">Enviar Mensaje al Correo</button>
-                    <div id="form-status" class="form-status"></div>
+                    <div class="form-group">
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí... *" required></textarea>
+                        <small class="error-msg"></small>
+                    </div>
+                    <button type="submit" class="btn btn-gold btn-block">Enviar Correo</button>
                 </form>
             </div>
+
+            <!-- Ubicación -->
+            <div class="contact-info-wrapper">
+                <span class="sub-title gold">VISÍTANOS</span>
+                <h2>Ubicación & Atención</h2>
+                
+                <ul class="contact-details">
+                    <li>
+                        <i class="fa-solid fa-location-dot gold"></i>
+                        <span>DGNAL 45 x 68 y Av. Benito Juárez, Col. Juan Bautista Vega, Felipe Carrillo Puerto, Quintana Roo, México.</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone gold"></i>
+                        <span>+52 997 166 8631</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope gold"></i>
+                        <span>coffeshalom1@gmail.com</span>
+                    </li>
+                </ul>
+
+                <div class="map-container">
+                    <iframe 
+                        title="Mapa de Ubicación Coffee Shalom"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.289139598288!2d-88.0485!3d19.5783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM0JzQxLjkiTiA4OMKwMDInNTQuNeJX!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" 
+                        width="100%" height="220" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="action-buttons-group">
+                    <a href="https://maps.google.com/?q=DGNAL+45+x+68+y+Av.+Benito+Juarez,+Felipe+Carrillo+Puerto,+Quintana+Roo" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                        📍 Cómo llegar
+                    </a>
+                    <a href="tel:+529971668631" class="btn btn-gold btn-sm">
+                        <i class="fa-solid fa-phone"></i> Llamar Directo
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Botón Flotante de WhatsApp Directo -->
-    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom,%20deseo%20realizar%20un%20pedido" class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container text-center">
+            <!-- LOGO FOOTER CREADO EN CÓDIGO -->
+            <div class="vector-logo-box footer-logo-box">
+                <i class="fa-solid fa-mug-hot logo-icon-svg"></i>
+                <div class="logo-title-vector">COFFEE SHALOM</div>
+                <div class="logo-subtitle-vector">CAKES & SPECIALTY COFFEE</div>
+            </div>
+            
+            <p class="footer-tagline">CAFÉ • AMOR • BENDICIÓN</p>
+            <div class="footer-socials">
+                <a href="https://wa.me/529971668631" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <hr class="footer-divider">
+            <p class="copyright">&copy; 2026 Coffee Shalom. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/529971668631?text=Hola%20Coffee%20Shalom%20%E2%98%95%2C%20me%20gustar%C3%ADa%20realizar%20un%20pedido." target="_blank" rel="noopener" class="float-whatsapp" aria-label="Contacto por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
