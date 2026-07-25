@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================
-       1. LOADER INICIAL
+       1. LOADER INICIAL CON ANIMACIÓN DE TAZA
        ================================---------- */
     const loader = document.getElementById('loader');
     window.addEventListener('load', () => {
         setTimeout(() => {
             loader.classList.add('fade-out');
-        }, 500);
+        }, 600);
     });
 
     /* ==========================================
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.toggle('fa-times');
     });
 
-    // Cerrar menú al hacer clic en enlaces
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -86,14 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartTotal = document.getElementById('cartTotal');
     const clearCartBtn = document.getElementById('clearCartBtn');
 
-    // Abrir / Cerrar Modal Carrito
     cartBtn.addEventListener('click', () => cartModal.classList.add('active'));
     closeCart.addEventListener('click', () => cartModal.classList.remove('active'));
     cartModal.addEventListener('click', (e) => {
         if (e.target === cartModal) cartModal.classList.remove('active');
     });
 
-    // Añadir producto al carrito
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', (e) => {
             const card = e.target.closest('.product-card');
@@ -199,40 +196,25 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCart();
     });
 
-    // Inicializar renderizado del carrito al cargar
     renderCartItems();
 
     /* ==========================================
        6. PREPARACIÓN E INTEGRACIÓN STRIPE
        ================================---------- */
-    /* 
-      INSTRUCCIONES DE CONFIGURACIÓN DE STRIPE:
-      1. Obtén tus llaves desde el panel de Stripe (https://dashboard.stripe.com/).
-      2. Reemplaza 'pk_test_TU_CLAVE_PUBLICA_AQUI' con tu Clave Pública de prueba o producción.
-      3. Asegúrate de configurar tu servidor backend para manejar los webhooks y las sesiones de Checkout (stripe.checkout.sessions.create).
-    */
     const stripeCheckoutBtn = document.getElementById('stripeCheckoutBtn');
     
-    // Simulación de pasarela Stripe lista para credenciales
     stripeCheckoutBtn.addEventListener('click', () => {
         if (cart.length === 0) {
             alert('Tu carrito está vacío.');
             return;
         }
 
-        // Variable de llave pública (Sustituir cuando se disponga de la cuenta)
         const STRIPE_PUBLIC_KEY = 'pk_test_TU_CLAVE_PUBLICA_AQUI';
 
         if (STRIPE_PUBLIC_KEY.includes('TU_CLAVE_PUBLICA')) {
-            alert('⚙️ El sistema de pagos con Stripe está correctamente estructurado y preparado.\n\nPara activarlo en producción o pruebas, ingresa tu Clave Pública en el archivo script.js y conecta tu backend.');
+            alert('⚙️ El sistema de pagos con Stripe está correctamente estructurado y preparado.\n\nPara activarlo, ingresa tu Clave Pública en el archivo script.js.');
             return;
         }
-
-        /* 
-          Ejecución real al tener la clave configurada:
-          const stripe = Stripe(STRIPE_PUBLIC_KEY);
-          stripe.redirectToCheckout({ sessionId: 'SESSION_ID_GENERADO_EN_BACKEND' });
-        */
     });
 
     /* ==========================================
@@ -251,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const asunto = document.getElementById('asunto');
         const mensaje = document.getElementById('mensaje');
 
-        // Limpiar errores previos
         document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
         document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => el.classList.remove('error'));
 
@@ -284,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (isValid) {
-            // Simulación de envío exitoso hacia coffeshalom1@gmail.com
             formSuccess.textContent = '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo muy pronto a través de coffeshalom1@gmail.com.';
             contactForm.reset();
             setTimeout(() => {
