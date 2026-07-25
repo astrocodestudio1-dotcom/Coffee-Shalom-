@@ -450,161 +450,7 @@ body {
 .value-card i { font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 10px; }
 
 /* ==========================================================================
-   ESTILOS DEL CARRUSEL DE CAFÉ
-   ========================================================================== */
-.coffee-section {
-    background-color: var(--bg-dark);
-    padding: 80px 0;
-}
-
-.coffee-carousel-wrapper {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 20px 0;
-}
-
-.coffee-track-container {
-    overflow: hidden;
-    margin: 0 50px;
-}
-
-.coffee-track {
-    display: flex;
-    gap: 30px;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.coffee-slide-card {
-    min-width: calc(33.333% - 20px);
-    flex: 0 0 calc(33.333% - 20px);
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-soft);
-    transition: var(--transition-smooth);
-}
-
-.coffee-slide-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent-gold);
-    box-shadow: 0 15px 35px var(--accent-gold-glow);
-}
-
-.coffee-slide-card .card-img {
-    height: 240px;
-    overflow: hidden;
-    position: relative;
-}
-
-.coffee-slide-card .card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.coffee-slide-card:hover .card-img img {
-    transform: scale(1.08);
-}
-
-.coffee-slide-card .card-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--accent-gold);
-    color: #000;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-
-.coffee-slide-card .card-body {
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.coffee-slide-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: var(--text-light);
-}
-
-.coffee-slide-card p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-
-.coffee-slide-card .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 15px;
-}
-
-.coffee-slide-card .intensity {
-    font-size: 0.85rem;
-    color: var(--accent-gold);
-}
-
-.coffee-slide-card .btn-link {
-    color: var(--accent-gold);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.coffee-slide-card .btn-link:hover {
-    color: var(--text-light);
-}
-
-/* Botones del Carrusel */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: rgba(201, 162, 39, 0.2);
-    border: 1px solid var(--accent-gold);
-    color: var(--accent-gold);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.carousel-btn:hover {
-    background: var(--accent-gold);
-    color: var(--bg-dark);
-    box-shadow: 0 0 15px var(--accent-gold-glow);
-}
-
-.prev-btn {
-    left: 0;
-}
-
-.next-btn {
-    right: 0;
-}
-
-/* ==========================================================================
-   TARJETAS Y HOVER 3D GENERALES
+   TARJETAS Y HOVER 3D
    ========================================================================== */
 .card {
     overflow: hidden;
@@ -615,6 +461,34 @@ body {
     transform: translateY(-10px) rotateX(4deg);
     border-color: var(--accent-gold);
 }
+
+.card-img {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.card:hover .card-img img { transform: scale(1.1); }
+
+.card-badge {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: var(--accent-gold);
+    color: #1A0F0B;
+    font-weight: 700;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.card-body { padding: 25px; }
+.card-body h3 { font-family: var(--font-heading); margin-bottom: 10px; }
+.card-body p { color: var(--text-muted); font-size: 0.9rem; }
 
 /* ==========================================================================
    7. MENÚ CON FILTROS
@@ -818,19 +692,4 @@ body {
     }
     .nav-menu.active { right: 0; }
     .nav-menu ul { flex-direction: column; text-align: center; }
-    
-    .coffee-slide-card {
-        min-width: calc(50% - 15px);
-        flex: 0 0 calc(50% - 15px);
-    }
-}
-
-@media (max-width: 768px) {
-    .coffee-slide-card {
-        min-width: 100%;
-        flex: 0 0 100%;
-    }
-    .coffee-track-container {
-        margin: 0 40px;
-    }
 }
